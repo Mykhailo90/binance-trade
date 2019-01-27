@@ -18,11 +18,13 @@
 </head>
 <body>
 <main>
+    <div class="container">
     @include('layouts.header')
 
     @yield('content')
 
     @include('layouts.footer')
+    </div>
 </main>
 </body>
 </html>

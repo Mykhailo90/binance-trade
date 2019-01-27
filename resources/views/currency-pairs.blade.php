@@ -16,6 +16,10 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
+                    <div style="margin-bottom: 20px">
+                        <button type="button" id="del-all" class="btn btn-danger btn-lg btn-block">Очистить список</button>
+                        {{--<button type="button" id="add-chosen" class="btn btn-warning btn-lg btn-block" disabled="disabled">Добавить выбранные</button>--}}
+                    </div>
                     <div id="currency-list">
                         @if (count($binanceList) === 0)
                             <div class="alert alert-warning" role="alert">
