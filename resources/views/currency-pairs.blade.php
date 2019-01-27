@@ -16,8 +16,40 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                    <button type="button" id="stop" class="btn btn-danger btn-lg btn-block">Очистить список</button>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <div id="currency-list">
+                        @if (count($binanceList) === 0)
+                            <div class="alert alert-warning" role="alert">
+                                Необходимо обновить список валютных пар!!!
+                            </div>
+                        @else
+                            <div class="container">
+                                @foreach ($binanceList as $item)
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <span class="currency-title">{{ $item->status }}</span>
+                                        </div>
+                                        <div class="col-sm">
+                                            <span class="currency-title">{{ $item->name }}</span>
+                                        </div>
+                                        <div class="col-sm">
+                                            <input type="number" placeholder="% падения" id="min_{{$item->id}}">
+                                        </div>
+                                        <div class="col-sm">
+                                            <input type="number" placeholder="% роста" id="max_{{$item->id}}">
+                                        </div>
+                                        <div class="col-sm">
+                                            @if ($item->monitoring === 0)
+                                                <button class="btn btn-outline-success currency-btn" type="button" id="btn_{{ $item->id }}">Добавить</button>
+                                            @else
+                                                <button class="btn btn-outline-warning" type="button" disabled="disabled">Мониторинг</button>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
