@@ -13,11 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 Route::get('/update-currency', 'CurrencyController@updateList');
+
+Route::get('/delete-monitoring-list', 'CurrencyController@deleteList');
+
+Route::get('/delete-currency/{id}', 'CurrencyController@deleteCurrency');
+
+Route::post('/update-settings', 'CurrencyController@updateCurrencySettings');
+
+Route::post('/add-currency', 'CurrencyController@addCurrency');
 
 //Route::get('/update-currency', function (Request $request) {
 //    return 'GOOD';

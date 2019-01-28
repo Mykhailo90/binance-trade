@@ -3,14 +3,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CurrencyList extends Model
+class MonitoringList extends Model
 {
 
-    protected $table = 'currency_list';
+    protected $table = 'monitoring_list';
 
     protected $fillable = [
         'name',
-        'status'
+        'min_value',
+        'max_value'
     ];
 
     public $timestamps = false;

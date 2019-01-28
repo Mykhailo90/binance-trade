@@ -16,4 +16,3 @@ Route::get('/', function () {
 });
 
 Route::get('/currency-pairs', 'CurrencyController@index');
-

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCurrencyListTable extends Migration
+class CreateGloblaParametersListTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCurrencyListTable extends Migration
      */
     public function up()
     {
-        Schema::create('currency_list', function (Blueprint $table) {
+        Schema::create('globla_parameters_list', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('status');
-            $table->smallInteger('monitoring')->default(0);
+            $table->smallInteger('check_new_pairs');
+            $table->integer('min_value');
+            $table->integer('max_value');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateCurrencyListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('currency_list');
+        Schema::dropIfExists('globla_parameters_list');
     }
 }

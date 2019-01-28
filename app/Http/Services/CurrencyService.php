@@ -3,6 +3,8 @@
 namespace App\Http\Services;
 
 use App\CurrencyList;
+use App\GlobalSettings;
+use App\MonitoringList;
 
 class CurrencyService
 {
@@ -34,4 +36,81 @@ class CurrencyService
             $pair->save();
         }
     }
+
+    public function updateCurrencyListMonitoringStatus()
+    {
+        $monitoringPairsNames = MonitoringList::all()->pluck('name');
+        $monitoringPairsNames = $monitoringPairsNames->toArray();
+
+        CurrencyList::whereIn('name', $monitoringPairsNames)->update(['monitoring' => 1]);
+    }
+
+    public function getGlobalParams()
+    {
+        return GlobalSettings::first();
+    }
+
+    public function getMonitoringList()
+    {
+        return MonitoringList::all();
+    }
+
+    public function deleteList()
+    {
+        $list = MonitoringList::all();
+        $monitoringPairsNames = ($list->pluck('name'))->toArray();
+
+        CurrencyList::whereIn('name', $monitoringPairsNames)->update(['monitoring' => 0]);
+
+        foreach ($list as $item)
+        {
+            $item->delete();
+        }
+    }
+
+    public function deleteCurrency($id)
+    {
+        $currency = MonitoringList::find($id);
+
+        if ($currency){
+            CurrencyList::where('name', $currency->name)->update(['monitoring' => 0]);
+            $currency->delete();
+        }
+
+    }
+
+    public function updateSettings($request)
+    {
+        $id = $request->get('id');
+        $min = $request->get('min');
+        $max = $request->get('max');
+
+        $currency = MonitoringList::find($id);
+
+        if ($min)
+            $currency->min_value = $min;
+        if ($max)
+            $currency->max_value = $max;
+        $currency->save();
+    }
+
+    public function addCurrency($request)
+    {
+        $id = $request->get('id');
+        $min = $request->get('min');
+        $max = $request->get('max');
+
+        $res = CurrencyList::find($id);
+        $res->monitoring = 1;
+        $res->save();
+
+        $name = $res->name;
+
+        $currency = new MonitoringList();
+        $currency->name = $name;
+        $currency->min_value = $min;
+        $currency->max_value = $max;
+        $currency->save();
+    }
+
 }
