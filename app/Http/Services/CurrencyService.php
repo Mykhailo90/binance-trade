@@ -113,4 +113,20 @@ class CurrencyService
         $currency->save();
     }
 
+    public function addAllListToMonitoring()
+    {
+        $globalParams = GlobalSettings::first();
+
+        $newList = CurrencyList::where('monitoring', 0)->get();
+        foreach ($newList as $item){
+            $monitoring = new MonitoringList();
+            $monitoring->name = $item->name;
+            $monitoring->min_value = $globalParams->min_value;
+            $monitoring->max_value = $globalParams->max_value;
+            $monitoring->save();
+            $item->monitoring = 1;
+            $item->save();
+        }
+    }
+
 }

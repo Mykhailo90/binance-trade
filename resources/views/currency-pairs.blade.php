@@ -131,6 +131,11 @@
             var monitoringListCount = <?php echo  count($monitoringList); ?>;
             var currencyListCount = <?php echo  count($binanceList); ?>;
 
+            if (monitoringListCount == currencyListCount)
+            {
+                $("#add-all").prop('disabled',true);
+            }
+
             $(".currency-btn-add").click(function(){
                 currencyId = $(this).attr('data');
 
@@ -194,6 +199,21 @@
                 $.ajax({
                     type: "GET",
                     url: "http://binance-trade.local/api/update-currency",
+                    cache: false,
+                    success: function(html){
+                        location.reload();
+                    }
+                });
+            });
+
+            $("#add-all").click(function () {
+                $("#add-all").text('Процесс добавления информации запущен!');
+                $("#add-all").removeClass("btn-success");
+                $("#add-all").addClass("btn-warning");
+                $("#add-all").prop('disabled',true);
+                $.ajax({
+                    type: "GET",
+                    url: "http://binance-trade.local/api/add-all-currency",
                     cache: false,
                     success: function(html){
                         location.reload();

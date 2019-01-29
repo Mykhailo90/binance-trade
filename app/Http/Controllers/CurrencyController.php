@@ -74,4 +74,10 @@ class CurrencyController extends Controller
         $service->addCurrency($request);
         return response('', 204);
     }
+
+    public function addAllCurrencyList(CurrencyService $service)
+    {
+        $service->addAllListToMonitoring();
+        return response('', 204);
+    }
 }
