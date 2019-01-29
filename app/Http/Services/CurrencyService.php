@@ -3,7 +3,6 @@
 namespace App\Http\Services;
 
 use App\CurrencyList;
-use App\GlobalSettings;
 use App\MonitoringList;
 
 class CurrencyService
@@ -45,11 +44,6 @@ class CurrencyService
         CurrencyList::whereIn('name', $monitoringPairsNames)->update(['monitoring' => 1]);
     }
 
-    public function getGlobalParams()
-    {
-        return GlobalSettings::first();
-    }
-
     public function getMonitoringList()
     {
         return MonitoringList::all();
@@ -79,21 +73,6 @@ class CurrencyService
 
     }
 
-    public function updateSettings($request)
-    {
-        $id = $request->get('id');
-        $min = $request->get('min');
-        $max = $request->get('max');
-
-        $currency = MonitoringList::find($id);
-
-        if ($min)
-            $currency->min_value = $min;
-        if ($max)
-            $currency->max_value = $max;
-        $currency->save();
-    }
-
     public function addCurrency($request)
     {
         $id = $request->get('id');
@@ -113,9 +92,9 @@ class CurrencyService
         $currency->save();
     }
 
-    public function addAllListToMonitoring()
+    public function addAllListToMonitoring(SettingsService $settingsService)
     {
-        $globalParams = GlobalSettings::first();
+        $globalParams = $settingsService->getGlobalParams();
 
         $newList = CurrencyList::where('monitoring', 0)->get();
         foreach ($newList as $item){

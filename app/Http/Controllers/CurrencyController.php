@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\CurrencyService;
+use App\Http\Services\SettingsService;
 use App\MonitoringList;
 use Illuminate\Http\Request;
 
@@ -33,10 +34,10 @@ class CurrencyController extends Controller
         return response('', 204);
     }
 
-    public function index(CurrencyService $service)
+    public function index(CurrencyService $service, SettingsService $settingsService)
     {
         $binanceList = $service->getBinanceCurrencyList();
-        $checkParams = $service->getGlobalParams();
+        $checkParams = $settingsService->getGlobalParams();
         $checkParams = ($checkParams) ? 1 : 0;
         $monitoringList = $service->getMonitoringList();
 
@@ -56,14 +57,12 @@ class CurrencyController extends Controller
 
     public function deleteCurrency(Request $request, CurrencyService $service)
     {
-//        dd($request->id);
-
         $service->deleteCurrency($request->id);
 
         return response('', 204);
     }
 
-    public function updateCurrencySettings(Request $request, CurrencyService $service)
+    public function updateCurrencySettings(Request $request, SettingsService $service)
     {
         $service->updateSettings($request);
         return response('', 204);
@@ -75,9 +74,9 @@ class CurrencyController extends Controller
         return response('', 204);
     }
 
-    public function addAllCurrencyList(CurrencyService $service)
+    public function addAllCurrencyList(CurrencyService $service, SettingsService $settingsService)
     {
-        $service->addAllListToMonitoring();
+        $service->addAllListToMonitoring($settingsService);
         return response('', 204);
     }
 }

@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/currency-pairs">Валютные пары<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Настройки мониторинга</a>
+                    <a class="nav-link" href="/global-settings">Настройки мониторинга</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Уведомления</a>

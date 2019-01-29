@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/currency-pairs', 'CurrencyController@index');
+
+Route::get('/global-settings', 'SettingsController@index');

@@ -10,6 +10,7 @@ class GlobalSettings extends Model
 
     protected $fillable = [
         'check_new_pairs',
+        'use_sound_alert',
         'min_value',
         'max_value'
     ];

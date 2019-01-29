@@ -15,6 +15,7 @@ class CreateGloblaParametersListTable extends Migration
     {
         Schema::create('globla_parameters_list', function (Blueprint $table) {
             $table->increments('id');
+            $table->smallInteger('use_sound_alert')->default(1);
             $table->smallInteger('check_new_pairs');
             $table->integer('min_value');
             $table->integer('max_value');
