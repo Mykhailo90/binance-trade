@@ -27,4 +27,23 @@ class SettingsService
         $currency->save();
     }
 
+    public function saveGlobalParams($request)
+    {
+        $checkCount = $request->get('checkCount');
+        $checkSound = $request->get('checkSound');
+        $min = $request->get('min');
+        $max = $request->get('max');
+
+        $global = GlobalSettings::first();
+
+        if (!$global)
+            $global = new GlobalSettings();
+
+        $global->use_sound_alert = $checkSound;
+        $global->check_new_pairs = $checkCount;
+        $global->min_value = $min;
+        $global->max_value = $max;
+        $global->save();
+    }
+
 }

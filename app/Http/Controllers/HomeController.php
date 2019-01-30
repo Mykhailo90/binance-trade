@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\CurrencyService;
 use App\Http\Services\SettingsService;
 use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,11 +24,13 @@ class SettingsController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function index(SettingsService $service)
+    public function index(SettingsService $settingsService, AlarmsService $alarmsService, CurrencyService $currencyService)
     {
-        $globalParams = $service->getGlobalParams();
+        $globalParams = $settingsService->getGlobalParams();
+        $newAlarms = $alarmsService->get
 
-        return view('global-settings', compact('globalParams'));
+
+        return view('welcome', compact('globalParams'));
     }
 
     public function saveGlobalSettings(Request $request, SettingsService $service)

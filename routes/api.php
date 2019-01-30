@@ -29,6 +29,8 @@ Route::post('/add-currency', 'CurrencyController@addCurrency');
 
 Route::get('/add-all-currency', 'CurrencyController@addAllCurrencyList');
 
+Route::post('/add-global-settings', 'SettingsController@saveGlobalSettings');
+
 //Route::get('/update-currency', function (Request $request) {
 //    return 'GOOD';
 //});
