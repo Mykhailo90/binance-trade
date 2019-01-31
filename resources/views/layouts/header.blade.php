@@ -15,6 +15,8 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/global-settings">Настройки мониторинга</a>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="/cast">Слепки состояний</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Уведомления</a>

@@ -31,6 +31,10 @@ Route::get('/add-all-currency', 'CurrencyController@addAllCurrencyList');
 
 Route::post('/add-global-settings', 'SettingsController@saveGlobalSettings');
 
+Route::post('/cast-create', 'ProcessingController@castCreate');
+
+Route::post('/cast-delete', 'ProcessingController@castDelete');
+
 //Route::get('/update-currency', function (Request $request) {
 //    return 'GOOD';
 //});

@@ -17,3 +17,5 @@ Route::get('/', 'HomeController@index');
 Route::get('/currency-pairs', 'CurrencyController@index');
 
 Route::get('/global-settings', 'SettingsController@index');
+
+Route::get('/cast', 'ProcessingController@index');
