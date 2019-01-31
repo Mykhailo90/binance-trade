@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d0f0b96-fa86-4620-ad47-c20afef31785" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/alarms.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/alarms.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alarms.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -42,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+              <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -50,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="28" column="45" lean-forward="true" selection-end-line="59" />
+            <state relative-caret-position="390">
+              <caret line="28" column="45" selection-end-line="59" />
               <folding>
                 <element signature="e#40#74#0#PHP" expanded="true" />
               </folding>
@@ -62,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Services/CastService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
+            <state relative-caret-position="615">
               <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
               <folding>
                 <element signature="e#37#50#0#PHP" expanded="true" />
@@ -75,12 +70,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/cast.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="21" lean-forward="true" selection-end-line="53" />
-              <folding>
-                <element signature="e#309#334#0#HTML" expanded="true" />
-                <element signature="e#449#485#0#HTML" expanded="true" />
-                <element signature="e#591#617#0#HTML" expanded="true" />
-              </folding>
+              <caret line="16" column="21" selection-end-line="53" />
             </state>
           </provider>
         </entry>
@@ -88,16 +78,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/alarms.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state relative-caret-position="164">
+              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
               <folding>
-                <element signature="e#355#380#0#HTML" expanded="true" />
-                <element signature="e#476#517#0#HTML" expanded="true" />
-                <element signature="e#588#614#0#HTML" expanded="true" />
-                <element signature="e#914#940#0#HTML" expanded="true" />
-                <element signature="e#1181#1206#0#HTML" expanded="true" />
-                <element signature="e#1302#1343#0#HTML" expanded="true" />
-                <element signature="e#1611#1637#0#HTML" expanded="true" />
+                <element signature="e#770#792#0#HTML" expanded="true" />
+                <element signature="e#1100#1124#0#HTML" expanded="true" />
+                <element signature="e#1703#1725#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Services/CurrencyService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="705">
               <caret line="48" column="29" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="29" />
               <folding>
                 <element signature="e#37#58#0#PHP" expanded="true" />
@@ -127,12 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="1575">
               <caret line="105" column="85" selection-start-line="105" selection-start-column="77" selection-end-line="105" selection-end-column="85" />
-              <folding>
-                <element signature="e#583#604#0#HTML" expanded="true" />
-                <element signature="e#676#697#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -360,16 +342,18 @@
       <workItem from="1548829902872" duration="6569000" />
       <workItem from="1548863114102" duration="642000" />
       <workItem from="1548933698930" duration="21381000" />
+      <workItem from="1548964409831" duration="410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93280000" />
+    <option name="totallyTimeSpent" value="93690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26729387" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27061427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -575,38 +559,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="105" column="85" selection-start-line="105" selection-start-column="77" selection-end-line="105" selection-end-column="85" />
-          <folding>
-            <element signature="e#583#604#0#HTML" expanded="true" />
-            <element signature="e#676#697#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/CurrencyService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <element signature="e#37#58#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_31_190028_create_alarm_process_module_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -617,31 +573,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="28" column="45" lean-forward="true" selection-end-line="59" />
+        <state relative-caret-position="390">
+          <caret line="28" column="45" selection-end-line="59" />
           <folding>
             <element signature="e#40#74#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cast.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" lean-forward="true" selection-end-line="53" />
-          <folding>
-            <element signature="e#309#334#0#HTML" expanded="true" />
-            <element signature="e#449#485#0#HTML" expanded="true" />
-            <element signature="e#591#617#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Services/CastService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
+        <state relative-caret-position="615">
           <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
           <folding>
             <element signature="e#37#50#0#PHP" expanded="true" />
@@ -649,32 +607,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/cast.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+        <state relative-caret-position="240">
+          <caret line="16" column="21" selection-end-line="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_31_190028_create_alarm_process_module_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="240">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/CurrencyService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="48" column="29" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="29" />
+          <folding>
+            <element signature="e#37#58#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1575">
+          <caret line="105" column="85" selection-start-line="105" selection-start-column="77" selection-end-line="105" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/alarms.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        <state relative-caret-position="164">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
           <folding>
-            <element signature="e#355#380#0#HTML" expanded="true" />
-            <element signature="e#476#517#0#HTML" expanded="true" />
-            <element signature="e#588#614#0#HTML" expanded="true" />
-            <element signature="e#914#940#0#HTML" expanded="true" />
-            <element signature="e#1181#1206#0#HTML" expanded="true" />
-            <element signature="e#1302#1343#0#HTML" expanded="true" />
-            <element signature="e#1611#1637#0#HTML" expanded="true" />
+            <element signature="e#770#792#0#HTML" expanded="true" />
+            <element signature="e#1100#1124#0#HTML" expanded="true" />
+            <element signature="e#1703#1725#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

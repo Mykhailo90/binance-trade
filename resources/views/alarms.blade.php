@@ -22,7 +22,7 @@
         @endforeach
     @endif
 
-    <h3>Просмотренные уведомления</h3>
+    <h3 style="margin-top: 30px">Просмотренные уведомления</h3>
     @if ($oldAlarms->count() == 0)
         <div class="alert alert-primary" role="alert" id="stringAlarm">
             ***На данный момент сохраненных уведомлений не обнаружено!
