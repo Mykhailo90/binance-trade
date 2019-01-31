@@ -19,7 +19,7 @@
                     <a class="nav-link" href="/cast">Слепки состояний</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Уведомления</a>
+                    <a class="nav-link" href="/alarms">Уведомления</a>
                 </li>
             </ul>
         </div>

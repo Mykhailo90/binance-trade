@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d0f0b96-fa86-4620-ad47-c20afef31785" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Cast.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/CastService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cast.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/alarms.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AlarmsList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AlarmsList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/GlobalSettings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/GlobalSettings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Services/SettingsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/SettingsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/MonitoringList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/MonitoringList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_28_070515_create_monitoring_list_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_28_070515_create_monitoring_list_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_28_072925_create_globla_parameters_list_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_28_072925_create_globla_parameters_list_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_31_112701_create_alarms_list_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_31_112701_create_alarms_list_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/global-settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/global-settings.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,22 +21,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="36" column="96" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="96" />
-              <folding>
-                <element signature="e#40#76#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/global-settings.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="50" column="13" selection-start-line="17" selection-start-column="8" selection-end-line="50" selection-end-column="13" />
+            <state relative-caret-position="255">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -59,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="31" column="70" lean-forward="true" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
+            <state relative-caret-position="240">
+              <caret line="28" column="45" lean-forward="true" selection-end-line="59" />
               <folding>
                 <element signature="e#40#74#0#PHP" expanded="true" />
               </folding>
@@ -71,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Services/CastService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
+            <state relative-caret-position="629">
               <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
               <folding>
                 <element signature="e#37#50#0#PHP" expanded="true" />
@@ -81,19 +72,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/cast.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+            <state relative-caret-position="240">
+              <caret line="16" column="21" lean-forward="true" selection-end-line="53" />
               <folding>
                 <element signature="e#309#334#0#HTML" expanded="true" />
                 <element signature="e#449#485#0#HTML" expanded="true" />
@@ -103,14 +85,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/alarms.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            <state relative-caret-position="165">
+              <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
               <folding>
-                <element signature="e#40#78#0#PHP" expanded="true" />
+                <element signature="e#355#380#0#HTML" expanded="true" />
+                <element signature="e#476#517#0#HTML" expanded="true" />
+                <element signature="e#588#614#0#HTML" expanded="true" />
+                <element signature="e#914#940#0#HTML" expanded="true" />
+                <element signature="e#1181#1206#0#HTML" expanded="true" />
+                <element signature="e#1302#1343#0#HTML" expanded="true" />
+                <element signature="e#1611#1637#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_31_190028_create_alarm_process_module_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -123,15 +120,6 @@
               <folding>
                 <element signature="e#37#58#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/MonitoringList.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -181,19 +169,22 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_31_112701_create_alarms_list_table.php" />
         <option value="$PROJECT_DIR$/app/AlarmsList.php" />
-        <option value="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" />
         <option value="$PROJECT_DIR$/resources/views/currency-pairs.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_31_144649_create_currency_cast_table.php" />
         <option value="$PROJECT_DIR$/app/Cast.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/public/css/layout.css" />
         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php" />
         <option value="$PROJECT_DIR$/app/Http/Services/CastService.php" />
         <option value="$PROJECT_DIR$/resources/views/cast.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_01_31_190028_create_alarm_process_module_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/alarms.blade.php" />
       </list>
     </option>
   </component>
@@ -313,42 +304,6 @@
             <path>
               <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
               <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -356,18 +311,6 @@
               <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
-              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -416,18 +359,17 @@
       <workItem from="1548742560909" duration="10929000" />
       <workItem from="1548829902872" duration="6569000" />
       <workItem from="1548863114102" duration="642000" />
-      <workItem from="1548933698930" duration="17802000" />
+      <workItem from="1548933698930" duration="21381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89701000" />
+    <option name="totallyTimeSpent" value="93280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26729387" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26729387" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -441,7 +383,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32937366" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -557,13 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/CurrencyList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -589,20 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -675,19 +596,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_31_190028_create_alarm_process_module_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="31" column="70" lean-forward="true" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
+        <state relative-caret-position="240">
+          <caret line="28" column="45" lean-forward="true" selection-end-line="59" />
           <folding>
             <element signature="e#40#74#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/cast.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="21" lean-forward="true" selection-end-line="53" />
+          <folding>
+            <element signature="e#309#334#0#HTML" expanded="true" />
+            <element signature="e#449#485#0#HTML" expanded="true" />
+            <element signature="e#591#617#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Services/CastService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
+        <state relative-caret-position="629">
           <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
           <folding>
             <element signature="e#37#50#0#PHP" expanded="true" />
@@ -695,14 +649,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/cast.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="345">
+          <caret line="23" column="61" lean-forward="true" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/alarms.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding>
-            <element signature="e#309#334#0#HTML" expanded="true" />
-            <element signature="e#449#485#0#HTML" expanded="true" />
-            <element signature="e#591#617#0#HTML" expanded="true" />
+            <element signature="e#355#380#0#HTML" expanded="true" />
+            <element signature="e#476#517#0#HTML" expanded="true" />
+            <element signature="e#588#614#0#HTML" expanded="true" />
+            <element signature="e#914#940#0#HTML" expanded="true" />
+            <element signature="e#1181#1206#0#HTML" expanded="true" />
+            <element signature="e#1302#1343#0#HTML" expanded="true" />
+            <element signature="e#1611#1637#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

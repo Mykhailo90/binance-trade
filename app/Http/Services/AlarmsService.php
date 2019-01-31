@@ -8,7 +8,7 @@ class AlarmsService
 {
     public function getNewAlarms()
     {
-        return AlarmsList::where('status', 'new');
+        return AlarmsList::where('status', 'new')->get();
     }
 
     public  function changeAlarmStatus($id)
@@ -19,5 +19,9 @@ class AlarmsService
         $alarm->save();
     }
 
+    public function getOldList()
+    {
+        return AlarmsList::where('status', 'checked')->get();
+    }
 
 }
