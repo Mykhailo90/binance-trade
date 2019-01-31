@@ -35,10 +35,10 @@
                                             <span class="currency-title">{{ $item->name }}</span>
                                         </div>
                                         <div class="col-sm">
-                                           <input type="number" id="min_{{ $item->id }}" value="{{ $item->min_value }}">
+                                           <input type="number" style="color: #761b18" id="min_{{ $item->id }}" value="{{ $item->min_value }}">
                                         </div>
                                         <div class="col-sm">
-                                            <input type="number" id="max_{{ $item->id }}" value="{{ $item->max_value }}">
+                                            <input type="number" style="color: #2d995b" id="max_{{ $item->id }}" value="{{ $item->max_value }}">
                                         </div>
                                         <div class="col-sm">
                                                 <button class="btn btn-outline-danger currency-btn-monitoring" type="button" data="{{ $item->id }}" id="btn_{{ $item->id }}">Удалить из мониторинга</button>
@@ -91,10 +91,10 @@
                                             <span class="currency-title">{{ $item->name }}</span>
                                         </div>
                                         <div class="col-sm">
-                                            <input type="number" placeholder="% падения" id="binance_min_{{$item->id}}">
+                                            <input type="number" style="color: #761b18" placeholder="% падения" id="binance_min_{{$item->id}}">
                                         </div>
                                         <div class="col-sm">
-                                            <input type="number" placeholder="% роста" id="binance_max_{{$item->id}}">
+                                            <input type="number" style="color: #2d995b" placeholder="% роста" id="binance_max_{{$item->id}}">
                                         </div>
                                         <div class="col-sm">
                                             @if ($item->monitoring === 0)

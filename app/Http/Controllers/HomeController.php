@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\AlarmsService;
 use App\Http\Services\CurrencyService;
 use App\Http\Services\SettingsService;
 use Illuminate\Http\Request;
@@ -27,10 +28,11 @@ class HomeController extends Controller
     public function index(SettingsService $settingsService, AlarmsService $alarmsService, CurrencyService $currencyService)
     {
         $globalParams = $settingsService->getGlobalParams();
-        $newAlarms = $alarmsService->get
+        $newAlarms = $alarmsService->getNewAlarms();
+        $countCurrency = $currencyService->getMonitoringList()->count();
+        $countAlarms = $newAlarms->count();
 
-
-        return view('welcome', compact('globalParams'));
+        return view('welcome', compact('globalParams', 'newAlarms', 'countCurrency', 'countAlarms'));
     }
 
     public function saveGlobalSettings(Request $request, SettingsService $service)

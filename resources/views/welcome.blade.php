@@ -11,31 +11,54 @@
         <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Мониторинг изменения количества валют
-                <span class="badge badge-primary badge-pill">Включено</span>
+                @if (!$globalParams)
+                    <span class="badge badge-danger badge-pill">Не установлено</span>
+                @elseif ($globalParams->check_new_pairs == 0)
+                    <span class="badge badge-danger badge-pill">Выключено</span>
+                @else
+                    <span class="badge badge-primary badge-pill">Включено</span>
+                @endif
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Количество валютных пар при мониторинге
-                <span class="badge badge-primary badge-pill">438</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                Количество пар исключенных из мониторинга
-                <span class="badge badge-primary badge-pill">12</span>
+                <span class="badge badge-primary badge-pill">{{ $countCurrency  }}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Количество новых уведомлений
-                <span class="badge badge-primary badge-pill">0</span>
+                @if ($countAlarms == 0)
+                    <span class="badge badge-primary badge-pill">0</span>
+                @else
+                    <span class="badge badge-danger badge-pill">{{ $countAlarms }}</span>
+                @endif
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Глобальный параментр роста валют
-                <span class="badge badge-primary badge-pill">30 %</span>
+                @if (!$globalParams)
+                    <span class="badge badge-danger badge-pill">Не установлено</span>
+                @else
+                    <span class="badge badge-primary badge-pill">{{ $globalParams->max_value }} %</span>
+                @endif
+
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Глобальный параметр снижения стоимости
-                <span class="badge badge-primary badge-pill">50 %</span>
+
+                @if (!$globalParams)
+                    <span class="badge badge-danger badge-pill">Не установлено</span>
+                @else
+                    <span class="badge badge-primary badge-pill">{{ $globalParams->min_value }} %</span>
+                @endif
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 Опция звукового уведомления при наличии сообщений
-                <span class="badge badge-primary badge-pill">Включена</span>
+
+                @if (!$globalParams)
+                    <span class="badge badge-danger badge-pill">Не установлено</span>
+                @elseif ($globalParams->use_sound_alert == 0)
+                    <span class="badge badge-danger badge-pill">Выключено</span>
+                @else
+                    <span class="badge badge-primary badge-pill">Включено</span>
+                @endif
             </li>
 
         </ul>
