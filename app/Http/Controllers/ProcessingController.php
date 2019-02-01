@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\CastService;
 use App\Http\Services\CurrencyService;
+use App\Http\Services\StateService;
 use Illuminate\Http\Request;
 
 class ProcessingController extends Controller
@@ -16,6 +17,21 @@ class ProcessingController extends Controller
     public function __construct()
     {
         //
+    }
+
+    public function startMonitoringProcess(Request $request, StateService $stateService)
+    {
+        if ($request && isset($request->state) && $request->state == 1)
+        {
+            $stateService->set($request);
+            dd("Команда на анализ запущена");
+        }
+        elseif (($stateService->get()) && $stateService->get()->state == 1) {
+            dd("Команда на анализ запущена");
+        }
+        else{
+            dd('Команда запущена не будет!');
+        }
     }
 
    public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService)

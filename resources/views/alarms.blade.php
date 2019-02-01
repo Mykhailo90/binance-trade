@@ -7,6 +7,7 @@
             ***На данный момент новых уведомлений нет!
         </div>
     @else
+        <button type="button" id="check-all" class="btn btn-success btn-lg btn-block">Добавить все в историю</button>
         @foreach($newAlarms as $alarm)
             <ul class="list-group" style="margin-top: 30px;">
                 <li class="list-group-item d-flex justify-content-between align-items-center" style="color: #1d643b; font-size: large;">
@@ -28,6 +29,7 @@
             ***На данный момент сохраненных уведомлений не обнаружено!
         </div>
     @else
+        <button type="button" id="check-all" class="btn btn-outline-danger btn-lg btn-block">Очистить историю уведомлений</button>
         @foreach($oldAlarms as $alarm)
             <ul class="list-group" style="margin-top: 30px;" id="listOldAlarm">
                 <li class="list-group-item d-flex justify-content-between align-items-center" style="color: #1d643b; font-size: large;">

@@ -35,6 +35,8 @@ Route::post('/cast-create', 'ProcessingController@castCreate');
 
 Route::post('/cast-delete', 'ProcessingController@castDelete');
 
+Route::get('/start-monitoring-process', 'ProcessingController@startMonitoringProcess');
+
 //Route::get('/update-currency', function (Request $request) {
 //    return 'GOOD';
 //});

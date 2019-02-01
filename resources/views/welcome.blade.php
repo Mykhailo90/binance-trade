@@ -3,16 +3,20 @@
 @section('content')
     <div>
         <h3>Тайминг обработки информации</h3>
-        <h2 class="green-text"><span id="timer" data="0">30</span> cек</h2>
-        @if ($cast->count() && $countCurrency)
-            <button type="button" id="start" class="btn btn-success btn-lg btn-block">Запуск мониторинга</button>
-            <button type="button" id="stop" class="btn btn-danger btn-lg btn-block">Остановить мониторинг</button>
+        @if ($monitoringState && $monitoringState->state == 1)
+            <h2 class="green-text"><span id="timer" data="0">{{ $monitoringState->timer }}</span> cек</h2>
+        @else
+            <h2 class="green-text"><span id="timer" data="0">30</span> cек</h2>
+        @endif
+        @if ($cast->count() && $countCurrency && (!$monitoringState || $monitoringState->state == 0))
+            <button type="button" id="start" class="btn btn-success btn-lg btn-block monitoring">Запуск мониторинга</button>
+        @elseif ($monitoringState->state == 1)
+            <button type="button" id="stop" class="btn btn-danger btn-lg btn-block monitoring">Процесс запущен / Остановить</button>
         @else
             <button type="button" id="start" class="btn btn-success btn-lg btn-block" disabled="disabled">Запуск мониторинга</button>
             <div class="alert alert-warning" role="alert">
                 ***Для запуска мониторинга необходимо добавить валюты и иметь хоть один стартовый слепок!
             </div>
-            <button type="button" id="stop" class="btn btn-danger btn-lg btn-block" disabled="disabled">Остановить мониторинг</button>
         @endif
 
         <button type="button" id="cast" class="btn btn-primary btn-lg btn-block">Cделать слепок</button>
@@ -85,22 +89,34 @@
         </ul>
     </div>
     <script>
+        totalSecs = <?php echo  ($monitoringState) ? $monitoringState->timer : 30; ?>;
+        state = <?php echo  ($monitoringState) ? $monitoringState->state : 0; ?>;
+
+
         function incTimer() {
             var currentSeconds = totalSecs % 60;
-            // if(currentSeconds <= 9) currentSeconds = "0" + currentSeconds;
             totalSecs--;
             $("#timer").text(currentSeconds);
-            if (totalSecs > 0 && $("#timer").attr('data') == 1)
+            if (totalSecs > 0)
                 setTimeout('incTimer()', 1000);
             if (totalSecs == 0)
-                location.reload();
+            {
+                $.ajax({
+                    type: "GET",
+                    url: "http://binance-trade.local/api/start-monitoring-process?state=1&timer=30",
+                    cache: false,
+                    success: function(html){
+                        location.reload();
+                    }
+                });
+            }
         }
 
-        totalSecs = 30;
+
 
         $(document).ready(function() {
-            $("#save-cast").click(function() {
 
+            $("#save-cast").click(function() {
                 var nameCast = $("#cast_name").val();
                 if (nameCast.trim().length > 0){
                     $.post( "http://binance-trade.local/api/cast-create", { 'castName': nameCast  })
@@ -111,19 +127,30 @@
                 }
             });
 
-            $("#start").click(function() {
-                $("#timer").attr("data", 1);
-                incTimer();
+            $(".monitoring").click(function() {
+                if (this.id == 'start'){
+                    $(".monitoring").attr('id', 'stop');
+                    $('.monitoring').html('Процесс запущен / Остановить');
+                    $('.monitoring').removeClass('btn-success');
+                    $('.monitoring').addClass('btn-danger');
+                    $("#timer").attr("data", 1);
+                    incTimer();
+                }
+                else if(this.id == 'stop'){
+                    $(".monitoring").attr('id', 'start');
+                    $('.monitoring').html('Запустить мониторинг');
+                    $('.monitoring').removeClass('btn-danger');
+                    $('.monitoring').addClass('btn-success');
+                    $("#timer").attr("data", 0);
+                }
+
             });
 
             $("#cast").click(function() {
                 $(".cast").toggle();
             });
 
-            $("#stop").click(function() {
-                $("#timer").attr("data", 0);
-            });
-            if ($("#timer").attr('data') == 1)
+            if (state == 1)
                 incTimer();
         });
     </script>
