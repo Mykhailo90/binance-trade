@@ -133,7 +133,14 @@
                     $('.monitoring').html('Процесс запущен / Остановить');
                     $('.monitoring').removeClass('btn-success');
                     $('.monitoring').addClass('btn-danger');
-                    $("#timer").attr("data", 1);
+                    $.ajax({
+                        type: "GET",
+                        url: "http://binance-trade.local/api/start-monitoring-process?state=1&timer=30",
+                        cache: false,
+                        success: function(html){
+                            location.reload();
+                        }
+                    });
                     incTimer();
                 }
                 else if(this.id == 'stop'){
@@ -141,7 +148,15 @@
                     $('.monitoring').html('Запустить мониторинг');
                     $('.monitoring').removeClass('btn-danger');
                     $('.monitoring').addClass('btn-success');
-                    $("#timer").attr("data", 0);
+                    $.ajax({
+                        type: "GET",
+                        url: "http://binance-trade.local/api/stop-monitoring-process",
+                        cache: false,
+                        success: function(html){
+                            location.reload();
+                        }
+                    });
+                    //Запрос на установку состояния в 0
                 }
 
             });

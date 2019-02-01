@@ -24,4 +24,26 @@ class AlarmsService
         return AlarmsList::where('status', 'checked')->get();
     }
 
+    public function createNewAlarmsByPairs($changes)
+    {
+        $count = 0;
+
+        foreach ($changes as $item){
+            $alarm = new AlarmsList();
+            $alarm->title = 'Изменения в парах';
+            $alarm->pair_name = $item->name;
+            if (!$item->status['old'])
+                $alarm->text = 'На рынке новая монета!!!';
+            elseif (!$item->status['new'])
+                $alarm->text = 'Монета больше не торгуется!!!';
+            else
+                $alarm->text = "Статус монеты изменился (".$item->status['old'].")-(".$item->status['new'].")";
+
+            $alarm->save();
+            $count++;
+        }
+
+        return $count;
+    }
+
 }

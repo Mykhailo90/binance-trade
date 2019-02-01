@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\AlarmsService;
 use App\Http\Services\CastService;
 use App\Http\Services\CurrencyService;
+use App\Http\Services\ProcessingService;
+use App\Http\Services\SettingsService;
 use App\Http\Services\StateService;
 use Illuminate\Http\Request;
 
@@ -19,18 +22,30 @@ class ProcessingController extends Controller
         //
     }
 
-    public function startMonitoringProcess(Request $request, StateService $stateService)
+    public function stopMonitoringProcess(StateService $stateService)
+    {
+        $obj = new \stdClass();
+        $obj->state = 0;
+        $obj->timer = 30;
+
+        $stateService->set($obj);
+    }
+
+    public function startMonitoringProcess(Request $request,
+                                           StateService $stateService,
+                                           ProcessingService $processingService,
+                                           CurrencyService $currencyService,
+                                           CastService $castService,
+                                           AlarmsService $alarmsService,
+                                           SettingsService $settingsService)
     {
         if ($request && isset($request->state) && $request->state == 1)
         {
             $stateService->set($request);
-            dd("Команда на анализ запущена");
+            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService);
         }
         elseif (($stateService->get()) && $stateService->get()->state == 1) {
-            dd("Команда на анализ запущена");
-        }
-        else{
-            dd('Команда запущена не будет!');
+            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService);
         }
     }
 
