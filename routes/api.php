@@ -39,6 +39,14 @@ Route::get('/start-monitoring-process', 'ProcessingController@startMonitoringPro
 
 Route::get('/stop-monitoring-process', 'ProcessingController@stopMonitoringProcess');
 
+Route::post('/alarm-save', 'AlarmsController@saveAlarm');
+
+Route::get('/alarm-save-all', 'AlarmsController@saveAll');
+
+Route::post('/alarm-delete', 'AlarmsController@deleteAlarm');
+
+Route::get('/alarm-delete-all', 'AlarmsController@deleteAll');
+
 //Route::get('/update-currency', function (Request $request) {
 //    return 'GOOD';
 //});

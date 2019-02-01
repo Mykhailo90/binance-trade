@@ -11,12 +11,19 @@ class AlarmsService
         return AlarmsList::where('status', 'new')->get();
     }
 
-    public  function changeAlarmStatus($id)
+    public  function moveToHistory($id)
     {
         $alarm = AlarmsList::find($id);
 
         $alarm->status = 'checked';
         $alarm->save();
+    }
+
+    public  function delete($id)
+    {
+        $alarm = AlarmsList::find($id);
+
+        $alarm->delete();
     }
 
     public function getOldList()
