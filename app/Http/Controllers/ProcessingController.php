@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Services\AlarmsService;
 use App\Http\Services\CastService;
 use App\Http\Services\CurrencyService;
+use App\Http\Services\OverviewService;
 use App\Http\Services\ProcessingService;
 use App\Http\Services\SettingsService;
 use App\Http\Services\StateService;
@@ -37,15 +38,16 @@ class ProcessingController extends Controller
                                            CurrencyService $currencyService,
                                            CastService $castService,
                                            AlarmsService $alarmsService,
-                                           SettingsService $settingsService)
+                                           SettingsService $settingsService,
+                                           OverviewService $overviewService)
     {
         if ($request && isset($request->state) && $request->state == 1)
         {
             $stateService->set($request);
-            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService);
+            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
         }
         elseif (($stateService->get()) && $stateService->get()->state == 1) {
-            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService);
+            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
         }
     }
 
@@ -79,12 +81,13 @@ class ProcessingController extends Controller
         return response('', 204);
     }
 
-   public function index(CastService $castService)
+   public function index(CastService $castService, AlarmsService $alarmsService)
    {
        $allCast = $castService->getList();
+       $newAlarms = $alarmsService->getNewAlarms();
        $castNames = $allCast->pluck('name')->unique();
 
-       return view('cast', compact('allCast', 'castNames'));
+       return view('cast', compact('allCast', 'castNames', 'newAlarms'));
    }
 
 }

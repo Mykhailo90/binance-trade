@@ -30,6 +30,12 @@
 
         $(document).ready(function() {
 
+            var newAlarms = <?php echo  $newAlarms->count(); ?>;
+
+            if (newAlarms){
+                $("#alarmsPage").css("color", "red");
+            }
+
             $(".cast-del").click(function() {
                 let nameCast = this.id;
 

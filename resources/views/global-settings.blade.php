@@ -126,6 +126,11 @@
         $(document).ready(function() {
             initParams();
             checkBtnStatus();
+            var newAlarms = <?php echo  $newAlarms->count(); ?>;
+
+            if (newAlarms){
+                $("#alarmsPage").css("color", "red");
+            }
 
             $(".input-params").change(function () {
                 minValue = $("#binance_min").val();

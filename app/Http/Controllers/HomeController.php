@@ -40,7 +40,9 @@ class HomeController extends Controller
         $cast = $castService->getList();
         $monitoringState = $stateService->get();
 
-        return view('welcome', compact('globalParams', 'cast', 'countCurrency', 'countAlarms', 'monitoringState'));
+        $cmd=exec(escapeshellcmd('/usr/bin/mpg123 /home/slaven/Загрузки/beep-01a.mp3'));
+
+        return view('welcome', compact('globalParams', 'cast', 'countCurrency', 'countAlarms', 'monitoringState', 'newAlarms'));
     }
 
     public function saveGlobalSettings(Request $request, SettingsService $service)

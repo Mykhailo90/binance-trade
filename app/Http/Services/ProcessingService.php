@@ -7,21 +7,29 @@ class ProcessingService
     public function startWork(CurrencyService $currencyService,
                               CastService $castService,
                               AlarmsService $alarmsService,
-                              SettingsService $settingsService)
+                              SettingsService $settingsService,
+                              OverviewService $overviewService)
     {
         $settings = $settingsService->getGlobalParams();
-        // $settings->use_sound_alert
-        // $settings->check_new_pairs
 
         if ($settings->check_new_pairs)
         {
             $oldList = $currencyService->getBinanceCurrencyList();
             $newList = $this->createNewList($currencyService);
             $changes = $this->delta($oldList, $newList);
-            $count = $alarmsService->createNewAlarmsByPairs($changes);
+            $alarmsService->createNewAlarmsByPairs($changes);
+        }
+        // Main block to parse changes in currency price
+        $srcCastData = $castService->getList();
+        $newInfo = $castService->createActualPrice();
+        $overviewService->createListOverview($srcCastData, $newInfo);
+        $alarmsService->createNewAlarmsFromPrice($currencyService, $overviewService);
 
-            dd($changes);
 
+        if ($settings->use_sound_alert && $alarmsService->getNewAlarms()->count()){
+
+
+            // Create command to sound alarms
         }
     }
 

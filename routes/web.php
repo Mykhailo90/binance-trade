@@ -21,3 +21,5 @@ Route::get('/global-settings', 'SettingsController@index');
 Route::get('/cast', 'ProcessingController@index');
 
 Route::get('/alarms', 'AlarmsController@index');
+
+Route::get('overview', 'OverviewController@index');

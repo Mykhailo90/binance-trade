@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\AlarmsService;
 use App\Http\Services\CurrencyService;
 use App\Http\Services\SettingsService;
 use App\MonitoringList;
@@ -34,14 +35,15 @@ class CurrencyController extends Controller
         return response('', 204);
     }
 
-    public function index(CurrencyService $service, SettingsService $settingsService)
+    public function index(CurrencyService $service, SettingsService $settingsService, AlarmsService $alarmsService)
     {
+        $newAlarms = $alarmsService->getNewAlarms();
         $binanceList = $service->getBinanceCurrencyList();
         $checkParams = $settingsService->getGlobalParams();
         $checkParams = ($checkParams) ? 1 : 0;
         $monitoringList = $service->getMonitoringList();
 
-        return view('currency-pairs', compact('binanceList', 'checkParams', 'monitoringList'));
+        return view('currency-pairs', compact('binanceList', 'checkParams', 'monitoringList', 'newAlarms'));
     }
 
     public function deleteList(CurrencyService $service)

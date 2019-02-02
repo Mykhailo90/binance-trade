@@ -51,6 +51,12 @@
 
         $(document).ready(function() {
 
+            var newAlarms = <?php echo  $newAlarms->count(); ?>;
+
+            if (newAlarms){
+                $("#alarmsPage").css("color", "red");
+            }
+
             $(".alarm-save").click(function() {
                 let alarmId = this.id;
 

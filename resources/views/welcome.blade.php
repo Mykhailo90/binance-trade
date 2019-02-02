@@ -1,16 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .red{
+            color: #b91d19;
+        }
+    </style>
     <div>
         <h3>Тайминг обработки информации</h3>
+
         @if ($monitoringState && $monitoringState->state == 1)
             <h2 class="green-text"><span id="timer" data="0">{{ $monitoringState->timer }}</span> cек</h2>
         @else
             <h2 class="green-text"><span id="timer" data="0">30</span> cек</h2>
         @endif
-        @if ($cast->count() && $countCurrency && (!$monitoringState || $monitoringState->state == 0))
+        @if ($cast->count() && $globalParams && $countCurrency && (!$monitoringState || $monitoringState->state == 0))
             <button type="button" id="start" class="btn btn-success btn-lg btn-block monitoring">Запуск мониторинга</button>
-        @elseif ($monitoringState->state == 1)
+        @elseif ($monitoringState && $monitoringState->state == 1)
             <button type="button" id="stop" class="btn btn-danger btn-lg btn-block monitoring">Процесс запущен / Остановить</button>
         @else
             <button type="button" id="start" class="btn btn-success btn-lg btn-block" disabled="disabled">Запуск мониторинга</button>
@@ -44,7 +50,7 @@
                 @if (!$cast || $cast->count() == 0)
                     <span class="badge badge-danger badge-pill">0</span>
                 @else
-                    <span class="badge badge-primary badge-pill">{{ $cast->count()  }}</span>
+                    <span class="badge badge-primary badge-pill">{{ $cast->groupBy('name')->count()  }}</span>
 
                 @endif
             </li>
@@ -88,7 +94,9 @@
 
         </ul>
     </div>
+    {{--<script src="{{ asset('js/bip.js')}}"></script>--}}
     <script>
+
         totalSecs = <?php echo  ($monitoringState) ? $monitoringState->timer : 30; ?>;
         state = <?php echo  ($monitoringState) ? $monitoringState->state : 0; ?>;
 
@@ -112,9 +120,24 @@
             }
         }
 
+        function soundWarning() {
+            var audio = new Audio();
+            audio.src = 'http://binance-trade.local/beep-01a.mp3';
+            audio.autoplay = true;
+            audio.loop = true;
+        }
 
 
         $(document).ready(function() {
+
+            var newAlarms = <?php echo  $newAlarms->count(); ?>;
+
+            if (newAlarms)
+                    soundWarning();
+
+            if (newAlarms){
+                $("#alarmsPage").css("color", "red");
+            }
 
             $("#save-cast").click(function() {
                 var nameCast = $("#cast_name").val();
@@ -167,6 +190,40 @@
 
             if (state == 1)
                 incTimer();
+
         });
+
+        // script for header - open new window with tabs
+
+        $('#mainPage').on('click', function(evt) {
+            evt.preventDefault();
+            window.open(evt.target.href, '_blank');
+        });
+
+        $('#overviewPage').on('click', function(evt) {
+            evt.preventDefault();
+            window.open(evt.target.href, '_blank');
+        });
+
+        $('#CurrencyPage').on('click', function(evt) {
+            evt.preventDefault();
+            window.open(evt.target.href, '_blank');
+        });
+        $('#settingsPage').on('click', function(evt) {
+            evt.preventDefault();
+            window.open(evt.target.href, '_blank');
+        });
+
+        $('#alarmsPage').on('click', function(evt) {
+            evt.preventDefault();
+            window.open(evt.target.href, '_blank');
+        });
+
+        $('#castPage').on('click', function(evt) {
+            evt.preventDefault();
+            window.open(evt.target.href, '_blank');
+        });
+
+
     </script>
 @endsection

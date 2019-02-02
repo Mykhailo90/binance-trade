@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        .red{
+            color: #b91d19;
+        }
+    </style>
     <div class="text-center">
         <button type="button" id="update-currency" class="btn btn-primary btn-lg btn-block">Обновить список валют биржи</button>
         <p>***Рекомендуется обновлять после срабатывания уведомления о новых валютах или изменении статуса!</p>
@@ -127,6 +132,12 @@
     <script>
 
         $(document).ready(function() {
+
+            var newAlarms = <?php echo  $newAlarms->count(); ?>;
+
+            if (newAlarms){
+                $("#alarmsPage").css("color", "red");
+            }
 
             var monitoringListCount = <?php echo  count($monitoringList); ?>;
             var currencyListCount = <?php echo  count($binanceList); ?>;

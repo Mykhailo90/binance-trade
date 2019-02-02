@@ -21,32 +21,10 @@
                 <li class="nav-item">
                     <a class="nav-link" id="alarmsPage" href="/alarms">Уведомления</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="overviewPage" href="/overview">Обзор изменений</a>
+                </li>
             </ul>
         </div>
     </nav>
-    <script>
-        $('#mainPage').on('click', function(evt) {
-            evt.preventDefault();
-            window.open(evt.target.href, '_blank');
-        });
-
-        $('#CurrencyPage').on('click', function(evt) {
-            evt.preventDefault();
-            window.open(evt.target.href, '_blank');
-        });
-        $('#settingsPagePage').on('click', function(evt) {
-            evt.preventDefault();
-            window.open(evt.target.href, '_blank');
-        });
-
-        $('#alarmsPage').on('click', function(evt) {
-            evt.preventDefault();
-            window.open(evt.target.href, '_blank');
-        });
-
-        $('#castPage').on('click', function(evt) {
-            evt.preventDefault();
-            window.open(evt.target.href, '_blank');
-        });
-    </script>
 </header>

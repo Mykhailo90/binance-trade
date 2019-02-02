@@ -33,7 +33,6 @@ class AlarmsService
 
     public function createNewAlarmsByPairs($changes)
     {
-        $count = 0;
 
         foreach ($changes as $item){
             $alarm = new AlarmsList();
@@ -47,10 +46,45 @@ class AlarmsService
                 $alarm->text = "Статус монеты изменился (".$item->status['old'].")-(".$item->status['new'].")";
 
             $alarm->save();
-            $count++;
         }
-
-        return $count;
     }
 
+    public function createNewAlarmsFromPrice(CurrencyService $currencyService, OverviewService $overviewService)
+    {
+        $settingsInfo = $currencyService->getMonitoringList();
+        $overviewList = $overviewService->getList();
+
+        foreach ($overviewList as $new){
+            foreach ($settingsInfo as $old){
+                if ($new->symbol == $old->name){
+                    $this->checkNewAlarm($new, $old);
+                    break;
+                }
+            }
+        }
+    }
+
+    private function checkNewAlarm($new, $old)
+    {
+        if ($new->percent_change > 0 && $old->max_value <= $new->percent_change)
+        {
+            $alarm = new AlarmsList();
+            $alarm->title = $new->cast_name;
+            $alarm->pair_name = $new->symbol;
+            $alarm->text = 'Рост на '. $new->percent_change . '%! (' . $new->first_price . ')-(' . $new->price .') ';
+            $alarm->save();
+        }
+        elseif($new->percent_change < 0){
+
+            $absNegativeChange = abs($new->percent_change);
+
+            if ($old->min_value <= $absNegativeChange) {
+                $alarm = new AlarmsList();
+                $alarm->title = $new->cast_name;
+                $alarm->pair_name = $new->symbol;
+                $alarm->text = 'Падение на ' . $new->percent_change . '%! (' . $new->first_price . ')-(' . $new->price . ') ';
+                $alarm->save();
+            }
+        }
+    }
 }
