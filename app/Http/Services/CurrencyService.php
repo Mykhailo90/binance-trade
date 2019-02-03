@@ -82,7 +82,10 @@ class CurrencyService
         $res = CurrencyList::find($id);
         $name = $res->name;
 
-        $currency = new MonitoringList();
+        $currency = MonitoringList::where('list_name_id', $listId)->where('symbol', $name)->first();
+
+        if (!$currency)
+            $currency = new MonitoringList();
         $currency->list_name_id = $listId;
         $currency->symbol = $name;
         $currency->min_value = $min;
@@ -95,7 +98,16 @@ class CurrencyService
         $globalParams = $settingsService->getGlobalParams();
 
         $newList = CurrencyList::all();
+        $oldList = MonitoringList::where('list_name_id', $id)->get();
+
         foreach ($newList as $item){
+
+            if($oldList){
+                foreach ($oldList as $old){
+                    if ($old->symbol == $item->name)
+                        break;
+                }
+            }
             $monitoring = new MonitoringList();
             $monitoring->list_name_id = $id;
             $monitoring->symbol = $item->name;

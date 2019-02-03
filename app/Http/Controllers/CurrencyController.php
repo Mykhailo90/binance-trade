@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Cast;
 use App\Http\Services\AlarmsService;
 use App\Http\Services\CastService;
 use App\Http\Services\CurrencyService;
 use App\Http\Services\SettingsService;
+use App\ListNames;
 use App\MonitoringList;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
@@ -53,38 +55,34 @@ class CurrencyController extends Controller
     {
         $idNameList = $request->nameListId;
         $service->deleteList($idNameList);
+        $obj = ListNames::find($idNameList);
 
-        $castList = $castService->getList();
-        $list = MonitoringList::all();
+        $castList = Cast::where('name', $obj->name)->get();
+//        $list = MonitoringList::all();
 
         foreach ($castList as $item){
-            foreach ($list as $obj){
-                if( $item->symbol == $obj->symbol)
-                    break;
-            }
             $item->delete();
         }
+
+
+        $obj->delete();
 
         return response('', 204);
     }
 
-    public function deleteCurrency(Request $request, CurrencyService $service, CastService $castService)
+    public function deleteCurrency(Request $request)
     {
-        $list = MonitoringList::distinct('symbol')->get();
-        $castList = $castService->getList();
+        $monitoringObject = MonitoringList::find($request->id);
 
-        $service->deleteCurrency($request->id);
+        $listName = ListNames::find($monitoringObject->list_name_id)->name;
 
-        if ($castList) {
-            foreach ($castList as $item){
-                foreach ($list as $obj){
-                    if( $item->symbol == $obj->symbol)
-                        break;
-                }
-                $item->delete();
-            }
-        }
+        $obj = Cast::where('name', $listName)->where('symbol', $monitoringObject->symbol)->first();
 
+        if ($obj)
+            $obj->delete();
+
+        if ($monitoringObject)
+            $monitoringObject->delete();
 
         return response('', 204);
     }
