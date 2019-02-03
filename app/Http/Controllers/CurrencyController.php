@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\AlarmsService;
+use App\Http\Services\CastService;
 use App\Http\Services\CurrencyService;
 use App\Http\Services\SettingsService;
 use App\MonitoringList;
+use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 
 class CurrencyController extends Controller
@@ -42,24 +44,47 @@ class CurrencyController extends Controller
         $checkParams = $settingsService->getGlobalParams();
         $checkParams = ($checkParams) ? 1 : 0;
         $monitoringList = $service->getMonitoringList();
+        $listNames = $service->getListNames();
 
-        return view('currency-pairs', compact('binanceList', 'checkParams', 'monitoringList', 'newAlarms'));
+        return view('currency-pairs', compact('binanceList', 'checkParams', 'monitoringList', 'newAlarms', 'listNames'));
     }
 
-    public function deleteList(CurrencyService $service)
+    public function deleteList(Request $request, CurrencyService $service, CastService $castService)
     {
-        $service->deleteList();
+        $idNameList = $request->nameListId;
+        $service->deleteList($idNameList);
+
+        $castList = $castService->getList();
         $list = MonitoringList::all();
-        foreach ($list as $item)
-        {
+
+        foreach ($castList as $item){
+            foreach ($list as $obj){
+                if( $item->symbol == $obj->symbol)
+                    break;
+            }
             $item->delete();
         }
+
         return response('', 204);
     }
 
-    public function deleteCurrency(Request $request, CurrencyService $service)
+    public function deleteCurrency(Request $request, CurrencyService $service, CastService $castService)
     {
+        $list = MonitoringList::distinct('symbol')->get();
+        $castList = $castService->getList();
+
         $service->deleteCurrency($request->id);
+
+        if ($castList) {
+            foreach ($castList as $item){
+                foreach ($list as $obj){
+                    if( $item->symbol == $obj->symbol)
+                        break;
+                }
+                $item->delete();
+            }
+        }
+
 
         return response('', 204);
     }
@@ -70,15 +95,23 @@ class CurrencyController extends Controller
         return response('', 204);
     }
 
-    public function addCurrency(Request $request, CurrencyService $service)
+    public function addCurrency(Request $request, CurrencyService $service, SettingsService $settingsService)
     {
-        $service->addCurrency($request);
+        $service->addCurrency($request, $settingsService);
         return response('', 204);
     }
 
-    public function addAllCurrencyList(CurrencyService $service, SettingsService $settingsService)
+    public function addAllCurrencyList(Request $request, CurrencyService $service, SettingsService $settingsService)
     {
-        $service->addAllListToMonitoring($settingsService);
+        $id = $request->id;
+        $service->addAllListToMonitoring($settingsService, $id);
+        return response('', 204);
+    }
+
+    public function newListCreate(Request $request, CurrencyService $service)
+    {
+        $service->createMonitoringName($request->get('name'));
+
         return response('', 204);
     }
 }

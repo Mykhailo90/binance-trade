@@ -2,6 +2,11 @@
 
 @section('content')
     <h3>Слепки состояний валютных пар</h3>
+
+    <button type="button" id="cast" class="btn btn-primary btn-lg btn-block">Cделать слепок</button>
+    <input type="name" class="cast form-control" id="cast_name" placeholder="Имя слепка" style="display: none">
+    <button type="button" id="save-cast" class="btn btn-success btn-lg btn-block cast" style="display: none">Сохранить</button>
+
     @if ($allCast->count() == 0)
         <div class="alert alert-primary" role="alert">
             ***На данный момент сохраненных слепков состояний не обнаружено!
@@ -28,6 +33,22 @@
 
     <script>
 
+        $("#save-cast").click(function() {
+            var nameCast = $("#cast_name").val();
+            if (nameCast.trim().length > 0){
+                $.post( "http://binance-trade.local/api/cast-create", { 'castName': nameCast  })
+                    .done(function() {
+                        alert('Слепок успешно создан!');
+                        location.reload();
+                    });
+            }
+        });
+
+        $("#cast").click(function() {
+            $(".cast").toggle();
+        });
+
+
         $(document).ready(function() {
 
             var newAlarms = <?php echo  $newAlarms->count(); ?>;
@@ -39,7 +60,6 @@
             $(".cast-del").click(function() {
                 let nameCast = this.id;
 
-
                 if (nameCast.trim().length > 0){
                     $.post( "http://binance-trade.local/api/cast-delete", { 'castName': nameCast  })
                         .done(function() {
@@ -48,11 +68,6 @@
                         });
                 }
             });
-
-            // $("#start").click(function() {
-            //     $("#timer").attr("data", 1);
-            //     incTimer();
-            // });
 
         });
     </script>

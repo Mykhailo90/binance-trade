@@ -47,6 +47,8 @@ Route::post('/alarm-delete', 'AlarmsController@deleteAlarm');
 
 Route::get('/alarm-delete-all', 'AlarmsController@deleteAll');
 
+Route::post('/list-name-create', 'CurrencyController@newListCreate');
+
 //Route::get('/update-currency', function (Request $request) {
 //    return 'GOOD';
 //});

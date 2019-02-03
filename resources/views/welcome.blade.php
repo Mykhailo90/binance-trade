@@ -1,20 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        .red{
-            color: #b91d19;
-        }
-    </style>
     <div>
         <h3>Тайминг обработки информации</h3>
 
         @if ($monitoringState && $monitoringState->state == 1)
-            <h2 class="green-text"><span id="timer" data="0">{{ $monitoringState->timer }}</span> cек</h2>
+            <h2 class="green-text"><span id="timer" >{{ $monitoringState->timer }}</span> cек</h2>
         @else
-            <h2 class="green-text"><span id="timer" data="0">30</span> cек</h2>
+            <h2 class="green-text"><span id="timer" >30</span> cек</h2>
         @endif
-        @if ($cast->count() && $globalParams && $countCurrency && (!$monitoringState || $monitoringState->state == 0))
+        @if ($cast->count() && (!$monitoringState || $monitoringState->state == 0))
             <button type="button" id="start" class="btn btn-success btn-lg btn-block monitoring">Запуск мониторинга</button>
         @elseif ($monitoringState && $monitoringState->state == 1)
             <button type="button" id="stop" class="btn btn-danger btn-lg btn-block monitoring">Процесс запущен / Остановить</button>
@@ -25,9 +20,7 @@
             </div>
         @endif
 
-        <button type="button" id="cast" class="btn btn-primary btn-lg btn-block">Cделать слепок</button>
-        <input type="name" class="cast form-control" id="cast_name" placeholder="Имя слепка" style="display: none">
-        <button type="button" id="save-cast" class="btn btn-success btn-lg btn-block cast" style="display: none">Сохранить</button>
+
     </div>
     <div>
         <ul class="list-group">
@@ -139,16 +132,7 @@
                 $("#alarmsPage").css("color", "red");
             }
 
-            $("#save-cast").click(function() {
-                var nameCast = $("#cast_name").val();
-                if (nameCast.trim().length > 0){
-                    $.post( "http://binance-trade.local/api/cast-create", { 'castName': nameCast  })
-                        .done(function() {
-                            alert('Слепок успешно создан!');
-                            location.reload();
-                        });
-                }
-            });
+
 
             $(".monitoring").click(function() {
                 if (this.id == 'start'){
@@ -160,9 +144,9 @@
                         type: "GET",
                         url: "http://binance-trade.local/api/start-monitoring-process?state=1&timer=30",
                         cache: false,
-                        success: function(html){
-                            location.reload();
-                        }
+                        // success: function(html){
+                        //     location.reload();
+                        // }
                     });
                     incTimer();
                 }
@@ -184,9 +168,6 @@
 
             });
 
-            $("#cast").click(function() {
-                $(".cast").toggle();
-            });
 
             if (state == 1)
                 incTimer();

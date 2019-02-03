@@ -73,7 +73,7 @@ class ProcessingController extends Controller
 
     public function castDelete(Request $request, CastService $castService)
     {
-        $id = $request->get('id');
+        $id = $request->get('castName');
 
         if ($id)
             $castService->delete($id);

@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\CurrencyList;
+use App\ListNames;
 use App\MonitoringList;
 
 class CurrencyService
@@ -38,7 +39,7 @@ class CurrencyService
 
     public function updateCurrencyListMonitoringStatus()
     {
-        $monitoringPairsNames = MonitoringList::all()->pluck('name');
+        $monitoringPairsNames = MonitoringList::all()->pluck('symbol');
         $monitoringPairsNames = $monitoringPairsNames->toArray();
 
         CurrencyList::whereIn('name', $monitoringPairsNames)->update(['monitoring' => 1]);
@@ -46,20 +47,18 @@ class CurrencyService
 
     public function getMonitoringList()
     {
-        return MonitoringList::all();
+        return MonitoringList::with('listName')->get();
     }
 
-    public function deleteList()
+    public function deleteList($idListName)
     {
-        $list = MonitoringList::all();
-        $monitoringPairsNames = ($list->pluck('name'))->toArray();
-
-        CurrencyList::whereIn('name', $monitoringPairsNames)->update(['monitoring' => 0]);
+        $list = MonitoringList::where('list_name_id', $idListName)->get();
 
         foreach ($list as $item)
         {
             $item->delete();
         }
+
     }
 
     public function deleteCurrency($id)
@@ -67,45 +66,59 @@ class CurrencyService
         $currency = MonitoringList::find($id);
 
         if ($currency){
-            CurrencyList::where('name', $currency->name)->update(['monitoring' => 0]);
             $currency->delete();
         }
 
     }
 
-    public function addCurrency($request)
+    public function addCurrency($request, SettingsService $settingsService)
     {
         $id = $request->get('id');
-        $min = $request->get('min');
-        $max = $request->get('max');
+        $min = ($request->get('min')) ? $request->get('min') : $settingsService->getGlobalParams()->min_value;
+        $max = $request->get('max') ? $request->get('max') : $settingsService->getGlobalParams()->max_value;
+        $listId = $request->get('listId');
+
 
         $res = CurrencyList::find($id);
-        $res->monitoring = 1;
-        $res->save();
-
         $name = $res->name;
 
         $currency = new MonitoringList();
-        $currency->name = $name;
+        $currency->list_name_id = $listId;
+        $currency->symbol = $name;
         $currency->min_value = $min;
         $currency->max_value = $max;
         $currency->save();
     }
 
-    public function addAllListToMonitoring(SettingsService $settingsService)
+    public function addAllListToMonitoring(SettingsService $settingsService, $id)
     {
         $globalParams = $settingsService->getGlobalParams();
 
-        $newList = CurrencyList::where('monitoring', 0)->get();
+        $newList = CurrencyList::all();
         foreach ($newList as $item){
             $monitoring = new MonitoringList();
-            $monitoring->name = $item->name;
+            $monitoring->list_name_id = $id;
+            $monitoring->symbol = $item->name;
             $monitoring->min_value = $globalParams->min_value;
             $monitoring->max_value = $globalParams->max_value;
             $monitoring->save();
-            $item->monitoring = 1;
-            $item->save();
         }
+    }
+
+    public function createMonitoringName($name)
+    {
+        $obj = ListNames::where('name', $name)->first();
+
+        if (!$obj){
+            $obj = new ListNames();
+            $obj->name = $name;
+            $obj->save();
+        }
+    }
+
+    public function getListNames()
+    {
+        return ListNames::all();
     }
 
 }

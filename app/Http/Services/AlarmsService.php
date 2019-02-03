@@ -28,7 +28,7 @@ class AlarmsService
 
     public function getOldList()
     {
-        return AlarmsList::where('status', 'checked')->get();
+        return AlarmsList::where('status', 'checked')->orderBy('date', 'desc')->get();
     }
 
     public function createNewAlarmsByPairs($changes)

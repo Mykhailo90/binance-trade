@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMonitoringListTable extends Migration
+class CreateListNamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateMonitoringListTable extends Migration
      */
     public function up()
     {
-        Schema::create('monitoring_list', function (Blueprint $table) {
+        Schema::create('list_names', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('list_name_id');
-            $table->string('symbol');
-            $table->integer('min_value');
-            $table->integer('max_value');
+            $table->string('name');
         });
     }
 
@@ -29,6 +26,6 @@ class CreateMonitoringListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monitoring_list');
+        Schema::dropIfExists('list_names');
     }
 }

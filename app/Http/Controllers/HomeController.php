@@ -40,7 +40,7 @@ class HomeController extends Controller
         $cast = $castService->getList();
         $monitoringState = $stateService->get();
 
-        $cmd=exec(escapeshellcmd('/usr/bin/mpg123 /home/slaven/Загрузки/beep-01a.mp3'));
+//        $cmd=exec(escapeshellcmd('/usr/bin/mpg123 /home/slaven/Загрузки/beep-01a.mp3'));
 
         return view('welcome', compact('globalParams', 'cast', 'countCurrency', 'countAlarms', 'monitoringState', 'newAlarms'));
     }

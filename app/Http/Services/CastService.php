@@ -25,6 +25,14 @@ class CastService
             $item->delete();
     }
 
+    public function delBySymbol($symbol)
+    {
+        $casts = Cast::where('symbol', $symbol)->get();
+        foreach ($casts as $item){
+            $item->delete();
+        }
+    }
+
     public function createActualPrice()
     {
         $info = file("https://api.binance.com/api/v1/ticker/24hr");
