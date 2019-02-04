@@ -15,8 +15,9 @@ class CreateMonitoringStateTable extends Migration
     {
         Schema::create('monitoring_state', function (Blueprint $table) {
             $table->increments('id');
-            $table->smallInteger('state');
-            $table->integer('timer');
+            $table->smallInteger('state')->default(0);
+            $table->integer('timer')->default(30);
+            $table->smallInteger('resolution')->default(0);
         });
     }
 

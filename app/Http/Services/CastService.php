@@ -19,19 +19,30 @@ class CastService
 
     public function delete($name)
     {
+        $procService = new ProcessingService();
         $casts = $this->getCastByName($name);
 
         foreach ($casts as $item)
             $item->delete();
+
+        $procService->checkResolution();
     }
 
-    public function delBySymbol($symbol)
-    {
-        $casts = Cast::where('symbol', $symbol)->get();
-        foreach ($casts as $item){
-            $item->delete();
-        }
-    }
+//    public function delBySymbol($symbol)
+//    {
+//        $stateService = new StateService();
+//        $casts = Cast::where('symbol', $symbol)->get();
+//        foreach ($casts as $item){
+//            $item->delete();
+//        }
+//
+//        if (!$this->getList()->count()){
+//            $obj = new \stdClass();
+//            $obj->state = 0;
+//            $obj->timer = 30;
+//            $stateService->set($obj);
+//        }
+//    }
 
     public function createActualPrice()
     {

@@ -130,16 +130,6 @@
                                                 <button class="btn btn-outline-success currency-btn-add" type="button"  data="{{ $item->id }}" id="binance_btn_{{ $item->id }}">Добавить</button>
                                         </div>
                                     </div>
-
-
-                                {{--<div class="input-group">--}}
-                                    {{--<div class="input-group-prepend">--}}
-                                        {{--<span class="input-group-text">{{ $item->name }}</span>--}}
-                                    {{--</div>--}}
-                                    {{--<input type="number" aria-label="Min value" class="form-control">--}}
-                                    {{--<input type="number" aria-label="Max value" class="form-control">--}}
-                                    {{--<button class="btn btn-outline-secondary" type="button" id="{{ $item->id }}">Button</button>--}}
-                                {{--</div>--}}
                                 @endforeach
                             </div>
                         @endif

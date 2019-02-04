@@ -4,8 +4,15 @@
     <h3>Слепки состояний валютных пар</h3>
 
     <button type="button" id="cast" class="btn btn-primary btn-lg btn-block">Cделать слепок</button>
-    <input type="name" class="cast form-control" id="cast_name" placeholder="Имя слепка" style="display: none">
-    <button type="button" id="save-cast" class="btn btn-success btn-lg btn-block cast" style="display: none">Сохранить</button>
+    <div class="input-group add-all">
+        <select class="custom-select" id="nameOfList" aria-label="Monitoring List Name">
+            <option selected>Выбор имени списка: </option>
+            @foreach($listNames as $item)
+                <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        </select>
+    </div>
+
 
     @if ($allCast->count() == 0)
         <div class="alert alert-primary" role="alert">
@@ -33,19 +40,16 @@
 
     <script>
 
-        $("#save-cast").click(function() {
-            var nameCast = $("#cast_name").val();
-            if (nameCast.trim().length > 0){
+        $("#cast").click(function() {
+            var nameCast = $("#nameOfList").val();
+            if (parseInt(nameCast)){
                 $.post( "http://binance-trade.local/api/cast-create", { 'castName': nameCast  })
                     .done(function() {
                         alert('Слепок успешно создан!');
                         location.reload();
                     });
             }
-        });
-
-        $("#cast").click(function() {
-            $(".cast").toggle();
+            else alert('Выберите имя списка мониторинга для слепка!')
         });
 
 

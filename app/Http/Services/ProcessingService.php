@@ -2,6 +2,8 @@
 
 namespace App\Http\Services;
 
+use App\GlobalSettings;
+
 class ProcessingService
 {
     public function startWork(CurrencyService $currencyService,
@@ -89,6 +91,29 @@ class ProcessingService
         }
 
         return $actual;
+    }
+
+    public function checkResolution()
+    {
+        $currencyService = new CurrencyService();
+        $settingsService = new SettingsService();
+        $castService = new CastService();
+        $stateService = new StateService();
+
+        $monitorinListCount = $currencyService->getMonitoringList()->count();
+        $castListCount = $castService->getList();
+        $checkSettingsParam = $settingsService->getGlobalParams()->count();
+        $obj = new \stdClass();
+
+        if ($monitorinListCount && $castListCount && $checkSettingsParam)
+        {
+            $obj->resolution = 1;
+            $stateService->set($obj);
+        }
+        else{
+            $obj->resolution = 1;
+            $stateService->set($obj);
+        }
     }
 
 }

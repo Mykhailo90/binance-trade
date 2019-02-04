@@ -59,6 +59,8 @@ class CurrencyService
             $item->delete();
         }
 
+        // При удалении мониторинг листа - удалить слепок! Обновить параметры стейт в случае необходимости!
+
     }
 
     public function deleteCurrency($id)
@@ -68,6 +70,8 @@ class CurrencyService
         if ($currency){
             $currency->delete();
         }
+
+        // При удалении мониторинг листа - удалить слепок! Обновить параметры стейт в случае необходимости!
 
     }
 

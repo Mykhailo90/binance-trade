@@ -41,14 +41,16 @@ class ProcessingController extends Controller
                                            SettingsService $settingsService,
                                            OverviewService $overviewService)
     {
-        if ($request && isset($request->state) && $request->state == 1)
+        $processingService->checkResolution();
+
+        if ($request && $stateService->get() && $stateService->get()->resolution == 1)
         {
             $stateService->set($request);
             $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
         }
-        elseif (($stateService->get()) && $stateService->get()->state == 1) {
-            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
-        }
+//        elseif (($stateService->get()) && $stateService->get()->state == 1) {
+//            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
+//        }
     }
 
    public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService)
