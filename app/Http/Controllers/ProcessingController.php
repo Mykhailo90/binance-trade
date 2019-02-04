@@ -9,6 +9,7 @@ use App\Http\Services\OverviewService;
 use App\Http\Services\ProcessingService;
 use App\Http\Services\SettingsService;
 use App\Http\Services\StateService;
+use App\ListNames;
 use Illuminate\Http\Request;
 
 class ProcessingController extends Controller
@@ -53,7 +54,7 @@ class ProcessingController extends Controller
 //        }
     }
 
-   public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService)
+   public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService, ProcessingService $processingService)
    {
        $castName = $request->castName;
 
@@ -70,26 +71,32 @@ class ProcessingController extends Controller
                    }
        }
 
+       $processingService->checkResolution();
+
        return response('', 204);
    }
 
-    public function castDelete(Request $request, CastService $castService)
+    public function castDelete(Request $request, CastService $castService, ProcessingService $processingService)
     {
         $id = $request->get('castName');
 
         if ($id)
             $castService->delete($id);
 
+        $processingService->checkResolution();
+
         return response('', 204);
     }
 
-   public function index(CastService $castService, AlarmsService $alarmsService)
+   public function index(CastService $castService, AlarmsService $alarmsService, ProcessingService $processingService)
    {
        $allCast = $castService->getList();
        $newAlarms = $alarmsService->getNewAlarms();
        $castNames = $allCast->pluck('name')->unique();
+       $processingService->checkResolution();
+       $listNames = ListNames::all();
 
-       return view('cast', compact('allCast', 'castNames', 'newAlarms'));
+       return view('cast', compact('allCast', 'castNames', 'newAlarms', 'listNames'));
    }
 
 }

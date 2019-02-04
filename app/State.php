@@ -11,6 +11,7 @@ class State extends Model
     protected $fillable = [
         'state',
         'timer',
+        'resolution'
     ];
 
     public $timestamps = false;

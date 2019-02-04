@@ -9,9 +9,9 @@
         @else
             <h2 class="green-text"><span id="timer" >30</span> cек</h2>
         @endif
-        @if ($cast->count() && (!$monitoringState || $monitoringState->state == 0))
+        @if ($monitoringState && $monitoringState->state == 0 && $monitoringState->resolution == 1)
             <button type="button" id="start" class="btn btn-success btn-lg btn-block monitoring">Запуск мониторинга</button>
-        @elseif ($monitoringState && $monitoringState->state == 1)
+        @elseif ($monitoringState && $monitoringState->state == 1 && $monitoringState->resolution == 1)
             <button type="button" id="stop" class="btn btn-danger btn-lg btn-block monitoring">Процесс запущен / Остановить</button>
         @else
             <button type="button" id="start" class="btn btn-success btn-lg btn-block" disabled="disabled">Запуск мониторинга</button>
@@ -144,9 +144,9 @@
                         type: "GET",
                         url: "http://binance-trade.local/api/start-monitoring-process?state=1&timer=30",
                         cache: false,
-                        // success: function(html){
-                        //     location.reload();
-                        // }
+                        success: function(html){
+                            location.reload();
+                        }
                     });
                     incTimer();
                 }

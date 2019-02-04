@@ -100,9 +100,14 @@ class ProcessingService
         $castService = new CastService();
         $stateService = new StateService();
 
-        $monitorinListCount = $currencyService->getMonitoringList()->count();
+        $monitorinListCount = $currencyService->getMonitoringList();
+        $monitorinListCount = ($monitorinListCount) ? $monitorinListCount->count() : 0;
+
         $castListCount = $castService->getList();
-        $checkSettingsParam = $settingsService->getGlobalParams()->count();
+        $castListCount = ($castListCount) ? $castListCount->count() : 0;
+
+        $checkSettingsParam = $settingsService->getGlobalParams();
+
         $obj = new \stdClass();
 
         if ($monitorinListCount && $castListCount && $checkSettingsParam)
@@ -111,7 +116,7 @@ class ProcessingService
             $stateService->set($obj);
         }
         else{
-            $obj->resolution = 1;
+            $obj->resolution = 0;
             $stateService->set($obj);
         }
     }

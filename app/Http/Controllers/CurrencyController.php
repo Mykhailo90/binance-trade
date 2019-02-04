@@ -31,17 +31,18 @@ class CurrencyController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function updateList(CurrencyService $service)
+    public function updateList(CurrencyService $service, ProcessingService $processingService)
     {
         $newCurrencyList = $service->getActualList();
 
         $service->updateCurrencyList($newCurrencyList);
         $service->updateCurrencyListMonitoringStatus();
+        $processingService->checkResolution();
 
         return response('', 204);
     }
 
-    public function index(CurrencyService $service, SettingsService $settingsService, AlarmsService $alarmsService)
+    public function index(CurrencyService $service, SettingsService $settingsService, AlarmsService $alarmsService, ProcessingService $processingService)
     {
         $newAlarms = $alarmsService->getNewAlarms();
         $binanceList = $service->getBinanceCurrencyList();
@@ -49,6 +50,7 @@ class CurrencyController extends Controller
         $checkParams = ($checkParams) ? 1 : 0;
         $monitoringList = $service->getMonitoringList();
         $listNames = $service->getListNames();
+        $processingService->checkResolution();
 
         return view('currency-pairs', compact('binanceList', 'checkParams', 'monitoringList', 'newAlarms', 'listNames'));
     }
@@ -93,28 +95,34 @@ class CurrencyController extends Controller
         return response('', 204);
     }
 
-    public function updateCurrencySettings(Request $request, SettingsService $service)
+    public function updateCurrencySettings(Request $request, SettingsService $service, ProcessingService $processingService)
     {
         $service->updateSettings($request);
+        $processingService->checkResolution();
+
         return response('', 204);
     }
 
-    public function addCurrency(Request $request, CurrencyService $service, SettingsService $settingsService)
+    public function addCurrency(Request $request, CurrencyService $service, SettingsService $settingsService, ProcessingService $processingService)
     {
         $service->addCurrency($request, $settingsService);
+        $processingService->checkResolution();
         return response('', 204);
     }
 
-    public function addAllCurrencyList(Request $request, CurrencyService $service, SettingsService $settingsService)
+    public function addAllCurrencyList(Request $request, CurrencyService $service, SettingsService $settingsService, ProcessingService $processingService)
     {
         $id = $request->id;
         $service->addAllListToMonitoring($settingsService, $id);
+        $processingService->checkResolution();
+
         return response('', 204);
     }
 
-    public function newListCreate(Request $request, CurrencyService $service)
+    public function newListCreate(Request $request, CurrencyService $service, ProcessingService $processingService)
     {
         $service->createMonitoringName($request->get('name'));
+        $processingService->checkResolution();
 
         return response('', 204);
     }
