@@ -56,16 +56,19 @@ class ProcessingController extends Controller
 
    public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService, ProcessingService $processingService)
    {
-       $castName = $request->castName;
+       $castNameId = $request->castNameId;
+       $castName = ListNames::find($castNameId);
 
-       $monitoringList = $currencyService->getMonitoringList()->pluck('name');
+//       $castNameId = ($castNameId) ? $castNameId->id : 0;
+
+       $monitoringList = $currencyService->getMonitoringList()->where('list_name_id', $castNameId)->pluck('symbol');
 
        $binanceInfo = $castService->createActualPrice();
 
        foreach ($monitoringList as $symbol) {
                    foreach ($binanceInfo as $item) {
                        if ($item->symbol == $symbol){
-                           $castService->createCast($castName, $item);
+                           $castService->createCast($castName->name, $item);
                            break;
                        }
                    }

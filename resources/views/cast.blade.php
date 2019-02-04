@@ -43,7 +43,7 @@
         $("#cast").click(function() {
             var nameCast = $("#nameOfList").val();
             if (parseInt(nameCast)){
-                $.post( "http://binance-trade.local/api/cast-create", { 'castName': nameCast  })
+                $.post( "http://binance-trade.local/api/cast-create", { 'castNameId': nameCast  })
                     .done(function() {
                         alert('Слепок успешно создан!');
                         location.reload();
