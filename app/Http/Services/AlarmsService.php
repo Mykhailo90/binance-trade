@@ -56,7 +56,7 @@ class AlarmsService
 
         foreach ($overviewList as $new){
             foreach ($settingsInfo as $old){
-                if ($new->symbol == $old->name){
+                if ($new->symbol == $old->symbol){
                     $this->checkNewAlarm($new, $old);
                     break;
                 }

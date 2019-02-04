@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d0f0b96-fa86-4620-ad47-c20afef31785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cast.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cast.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/CurrencyService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/CurrencyService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/OverviewService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/OverviewService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/currency-pairs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/currency-pairs.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="56" column="59" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="59" />
+            <state relative-caret-position="269">
+              <caret line="37" column="60" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="60" />
               <folding>
                 <element signature="e#40#76#0#PHP" expanded="true" />
               </folding>
@@ -52,10 +55,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="112" column="72" selection-start-line="112" selection-start-column="57" selection-end-line="112" selection-end-column="72" />
+              <folding>
+                <element signature="e#40#53#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Services/ProcessingService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="109" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="360">
+              <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -70,19 +94,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/currency-pairs.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1199">
-              <caret line="159" column="84" selection-start-line="159" selection-start-column="61" selection-end-line="159" selection-end-column="84" />
+            <state relative-caret-position="459">
+              <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_01_081948_create_monitoring_state_table.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OverviewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="135">
+              <caret line="9" column="41" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="41" />
+              <folding>
+                <element signature="e#40#76#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Services/OverviewService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Services/CurrencyService.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -130,8 +175,6 @@
         <option value="$PROJECT_DIR$/resources/views/alarms.blade.php" />
         <option value="$PROJECT_DIR$/public/js/bip.js" />
         <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Services/OverviewService.php" />
-        <option value="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_03_074336_create_list_names_table.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_27_172756_create_currency_list_table.php" />
@@ -139,8 +182,6 @@
         <option value="$PROJECT_DIR$/app/CurrencyList.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_28_070515_create_monitoring_list_table.php" />
         <option value="$PROJECT_DIR$/app/MonitoringList.php" />
-        <option value="$PROJECT_DIR$/resources/views/currency-pairs.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Services/CurrencyService.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_01_081948_create_monitoring_state_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Services/CastService.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" />
@@ -152,6 +193,10 @@
         <option value="$PROJECT_DIR$/app/Http/Services/ProcessingService.php" />
         <option value="$PROJECT_DIR$/resources/views/cast.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Services/AlarmsService.php" />
+        <option value="$PROJECT_DIR$/app/Http/Services/CurrencyService.php" />
+        <option value="$PROJECT_DIR$/resources/views/currency-pairs.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Services/OverviewService.php" />
       </list>
     </option>
   </component>
@@ -289,6 +334,13 @@
             <path>
               <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
               <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="binance-trade" type="b2602c69:ProjectViewProjectNode" />
+              <item name="binance-trade" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,12 +425,12 @@
       <workItem from="1549112621044" duration="7299000" />
       <workItem from="1549131751677" duration="4965000" />
       <workItem from="1549178056560" duration="25509000" />
-      <workItem from="1549274704638" duration="5520000" />
+      <workItem from="1549274704638" duration="9876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183887000" />
+    <option name="totallyTimeSpent" value="188243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -567,24 +619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/AlarmsList.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="20" column="31" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/OverviewService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -658,44 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/currency-pairs.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="34" selection-start-line="88" selection-start-column="27" selection-end-line="95" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/CurrencyService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="73" column="107" selection-start-line="73" selection-start-column="107" selection-end-line="73" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AlarmsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="34" column="31" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="31" />
-          <folding>
-            <element signature="e#40#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="124" column="46" selection-start-line="124" selection-start-column="46" selection-end-line="124" selection-end-column="46" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OverviewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
           <folding>
             <element signature="e#40#76#0#PHP" expanded="true" />
           </folding>
@@ -720,13 +724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1199">
           <caret line="159" column="84" selection-start-line="159" selection-start-column="61" selection-end-line="159" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Services/ProcessingService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
         </state>
       </provider>
     </entry>
@@ -783,11 +780,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProcessingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="56" column="59" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="59" />
+        <state relative-caret-position="269">
+          <caret line="37" column="60" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="60" />
           <folding>
             <element signature="e#40#76#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/ProcessingService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="112" column="72" selection-start-line="112" selection-start-column="57" selection-end-line="112" selection-end-column="72" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/CurrencyService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="99" column="30" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/currency-pairs.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OverviewController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="41" />
+          <folding>
+            <element signature="e#40#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/OverviewService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Services/AlarmsService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
         </state>
       </provider>
     </entry>

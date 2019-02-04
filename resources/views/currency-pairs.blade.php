@@ -127,7 +127,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm">
-                                                <button class="btn btn-outline-success currency-btn-add" type="button"  data="{{ $item->id }}" id="binance_btn_{{ $item->id }}">Добавить</button>
+                                                <button class="btn btn-outline-success currency-btn-add" type="button" status="{{ $item->status }}"  data="{{ $item->id }}" id="binance_btn_{{ $item->id }}">Добавить</button>
                                         </div>
                                     </div>
                                 @endforeach
@@ -195,9 +195,16 @@
 
             $(".currency-btn-add").click(function(){
                 currencyId = $(this).attr('data');
+                currencyStatus = $(this).attr('status');
                 currencyMin =$("#binance_min_"+ currencyId).val();
                 currencyMax =$("#binance_max_"+ currencyId).val();
                 listId = $("#nameOfListOne_"+currencyId).val();
+
+                if(currencyStatus != 'TRADING'){
+                    alert('Пара не торгуется, попробуйте позже!');
+                    return;
+                }
+
                 if (parseInt(listId)){
                         $.post( "http://binance-trade.local/api/add-currency", { 'id': currencyId, 'min': currencyMin, 'max': currencyMax, 'listId': listId })
                             .done(function() {
