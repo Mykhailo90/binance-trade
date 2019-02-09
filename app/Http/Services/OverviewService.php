@@ -8,7 +8,7 @@ class OverviewService
 {
     public function getList()
     {
-        return Overview::all();
+        return (Overview::all())->sortBy('percent_change');
     }
 
     public function clearList()

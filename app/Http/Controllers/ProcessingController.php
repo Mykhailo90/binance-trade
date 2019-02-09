@@ -9,6 +9,7 @@ use App\Http\Services\OverviewService;
 use App\Http\Services\ProcessingService;
 use App\Http\Services\SettingsService;
 use App\Http\Services\StateService;
+use App\ListNames;
 use Illuminate\Http\Request;
 
 class ProcessingController extends Controller
@@ -41,53 +42,64 @@ class ProcessingController extends Controller
                                            SettingsService $settingsService,
                                            OverviewService $overviewService)
     {
-        if ($request && isset($request->state) && $request->state == 1)
+        $processingService->checkResolution();
+
+        if ($request && $stateService->get() && $stateService->get()->resolution == 1)
         {
             $stateService->set($request);
             $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
         }
-        elseif (($stateService->get()) && $stateService->get()->state == 1) {
-            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
-        }
+//        elseif (($stateService->get()) && $stateService->get()->state == 1) {
+//            $processingService->startWork($currencyService, $castService, $alarmsService, $settingsService, $overviewService);
+//        }
     }
 
-   public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService)
+   public function castCreate(Request $request, CastService $castService, CurrencyService $currencyService, ProcessingService $processingService)
    {
-       $castName = $request->castName;
+       $castNameId = $request->castNameId;
+       $castName = ListNames::find($castNameId);
 
-       $monitoringList = $currencyService->getMonitoringList()->pluck('name');
+//       $castNameId = ($castNameId) ? $castNameId->id : 0;
+
+       $monitoringList = $currencyService->getMonitoringList()->where('list_name_id', $castNameId)->pluck('symbol');
 
        $binanceInfo = $castService->createActualPrice();
 
        foreach ($monitoringList as $symbol) {
                    foreach ($binanceInfo as $item) {
                        if ($item->symbol == $symbol){
-                           $castService->createCast($castName, $item);
+                           $castService->createCast($castName->name, $item);
                            break;
                        }
                    }
        }
 
+       $processingService->checkResolution();
+
        return response('', 204);
    }
 
-    public function castDelete(Request $request, CastService $castService)
+    public function castDelete(Request $request, CastService $castService, ProcessingService $processingService)
     {
         $id = $request->get('castName');
 
         if ($id)
             $castService->delete($id);
 
+        $processingService->checkResolution();
+
         return response('', 204);
     }
 
-   public function index(CastService $castService, AlarmsService $alarmsService)
+   public function index(CastService $castService, AlarmsService $alarmsService, ProcessingService $processingService)
    {
        $allCast = $castService->getList();
        $newAlarms = $alarmsService->getNewAlarms();
        $castNames = $allCast->pluck('name')->unique();
+       $processingService->checkResolution();
+       $listNames = ListNames::all();
 
-       return view('cast', compact('allCast', 'castNames', 'newAlarms'));
+       return view('cast', compact('allCast', 'castNames', 'newAlarms', 'listNames'));
    }
 
 }

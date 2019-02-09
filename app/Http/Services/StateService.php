@@ -18,8 +18,15 @@ class StateService
         if (!$obj)
             $obj = new State();
 
-        $obj->state = $params->state;
-        $obj->timer = $params->timer;
+        if (isset($params->state))
+            $obj->state = ($params->state) ? $params->state : 0;
+
+        if (isset($params->timer))
+            $obj->timer = ($params->timer) ? $params->timer: 0;
+
+        if (isset($params->resolution))
+            $obj->resolution = $params->resolution ? $params->resolution : 0;
+
         $obj->save();
     }
 

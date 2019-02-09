@@ -59,6 +59,8 @@ class CurrencyService
             $item->delete();
         }
 
+        // При удалении мониторинг листа - удалить слепок! Обновить параметры стейт в случае необходимости!
+
     }
 
     public function deleteCurrency($id)
@@ -68,6 +70,8 @@ class CurrencyService
         if ($currency){
             $currency->delete();
         }
+
+        // При удалении мониторинг листа - удалить слепок! Обновить параметры стейт в случае необходимости!
 
     }
 
@@ -80,24 +84,29 @@ class CurrencyService
 
 
         $res = CurrencyList::find($id);
-        $name = $res->name;
 
-        $currency = MonitoringList::where('list_name_id', $listId)->where('symbol', $name)->first();
+        if ($res->status == 'TRADING')
+        {
+            $name = $res->name;
 
-        if (!$currency)
-            $currency = new MonitoringList();
-        $currency->list_name_id = $listId;
-        $currency->symbol = $name;
-        $currency->min_value = $min;
-        $currency->max_value = $max;
-        $currency->save();
+            $currency = MonitoringList::where('list_name_id', $listId)->where('symbol', $name)->first();
+
+            if (!$currency)
+                $currency = new MonitoringList();
+            $currency->list_name_id = $listId;
+            $currency->symbol = $name;
+            $currency->min_value = $min;
+            $currency->max_value = $max;
+            $currency->save();
+        }
+
     }
 
     public function addAllListToMonitoring(SettingsService $settingsService, $id)
     {
         $globalParams = $settingsService->getGlobalParams();
 
-        $newList = CurrencyList::all();
+        $newList = CurrencyList::where('status', 'TRADING')->get();
         $oldList = MonitoringList::where('list_name_id', $id)->get();
 
         foreach ($newList as $item){

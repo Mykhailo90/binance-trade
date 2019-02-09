@@ -127,19 +127,9 @@
                                             </div>
                                         </div>
                                         <div class="col-sm">
-                                                <button class="btn btn-outline-success currency-btn-add" type="button"  data="{{ $item->id }}" id="binance_btn_{{ $item->id }}">Добавить</button>
+                                                <button class="btn btn-outline-success currency-btn-add" type="button" status="{{ $item->status }}"  data="{{ $item->id }}" id="binance_btn_{{ $item->id }}">Добавить</button>
                                         </div>
                                     </div>
-
-
-                                {{--<div class="input-group">--}}
-                                    {{--<div class="input-group-prepend">--}}
-                                        {{--<span class="input-group-text">{{ $item->name }}</span>--}}
-                                    {{--</div>--}}
-                                    {{--<input type="number" aria-label="Min value" class="form-control">--}}
-                                    {{--<input type="number" aria-label="Max value" class="form-control">--}}
-                                    {{--<button class="btn btn-outline-secondary" type="button" id="{{ $item->id }}">Button</button>--}}
-                                {{--</div>--}}
                                 @endforeach
                             </div>
                         @endif
@@ -205,9 +195,16 @@
 
             $(".currency-btn-add").click(function(){
                 currencyId = $(this).attr('data');
+                currencyStatus = $(this).attr('status');
                 currencyMin =$("#binance_min_"+ currencyId).val();
                 currencyMax =$("#binance_max_"+ currencyId).val();
                 listId = $("#nameOfListOne_"+currencyId).val();
+
+                if(currencyStatus != 'TRADING'){
+                    alert('Пара не торгуется, попробуйте позже!');
+                    return;
+                }
+
                 if (parseInt(listId)){
                         $.post( "http://binance-trade.local/api/add-currency", { 'id': currencyId, 'min': currencyMin, 'max': currencyMax, 'listId': listId })
                             .done(function() {
