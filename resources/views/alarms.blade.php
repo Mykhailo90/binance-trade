@@ -105,6 +105,10 @@
                 });
             });
 
+            setTimeout(function() {
+                location.reload();
+            }, 10000);
+
         });
     </script>
 @endsection
