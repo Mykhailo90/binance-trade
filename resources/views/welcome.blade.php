@@ -145,10 +145,10 @@
                         type: "GET",
                         url: "http://binance-trade.local/api/stop-monitoring-process",
                         cache: false,
-
+                        success: function(html){
+                            location.reload();
+                        }
                     });
-                    location.reload();
-
                     //Запрос на установку состояния в 0
                 }
 
