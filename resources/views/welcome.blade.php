@@ -113,24 +113,10 @@
             }
         }
 
-        function soundWarning() {
-            var audio = new Audio();
-            audio.src = 'http://binance-trade.local/beep-01a.mp3';
-            audio.autoplay = true;
-            audio.loop = true;
-        }
+
 
 
         $(document).ready(function() {
-
-            var newAlarms = <?php echo  $newAlarms->count(); ?>;
-
-            if (newAlarms)
-                    soundWarning();
-
-            if (newAlarms){
-                $("#alarmsPage").css("color", "red");
-            }
 
 
 
@@ -159,10 +145,10 @@
                         type: "GET",
                         url: "http://binance-trade.local/api/stop-monitoring-process",
                         cache: false,
-                        success: function(html){
-                            location.reload();
-                        }
+
                     });
+                    location.reload();
+
                     //Запрос на установку состояния в 0
                 }
 
