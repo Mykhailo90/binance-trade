@@ -61,7 +61,7 @@
                 let alarmId = this.id;
 
 
-                    $.post( "http://binance-trade.local/api/alarm-save", { 'id': alarmId  })
+                    $.post( "http://localhost:8089/api/alarm-save", { 'id': alarmId  })
                         .done(function() {
                             alert('Объект перемещен в архив!');
                             location.reload();
@@ -73,7 +73,7 @@
                 let alarmId = this.id;
 
 
-                $.post( "http://binance-trade.local/api/alarm-delete", { 'id': alarmId  })
+                $.post( "http://localhost:8089/api/alarm-delete", { 'id': alarmId  })
                     .done(function() {
                         alert('Объект удален безвозвратно!');
                         location.reload();
@@ -84,7 +84,7 @@
             $("#check-all").click(function() {
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/alarm-save-all",
+                    url: "http://localhost:8089/api/alarm-save-all",
                     cache: false,
                     success: function(html){
                         alert("Операция выполнена успешно!");
@@ -96,7 +96,7 @@
             $("#dell-all").click(function() {
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/alarm-delete-all",
+                    url: "http://localhost:8089/api/alarm-delete-all",
                     cache: false,
                     success: function(html){
                         alert("Операция выполнена успешно!");

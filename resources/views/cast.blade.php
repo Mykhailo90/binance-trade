@@ -43,7 +43,7 @@
         $("#cast").click(function() {
             var nameCast = $("#nameOfList").val();
             if (parseInt(nameCast)){
-                $.post( "http://binance-trade.local/api/cast-create", { 'castNameId': nameCast  })
+                $.post( "http://localhost:8089/api/cast-create", { 'castNameId': nameCast  })
                     .done(function() {
                         alert('Слепок успешно создан!');
                         location.reload();
@@ -65,7 +65,7 @@
                 let nameCast = this.id;
 
                 if (nameCast.trim().length > 0){
-                    $.post( "http://binance-trade.local/api/cast-delete", { 'castName': nameCast  })
+                    $.post( "http://localhost:8089/api/cast-delete", { 'castName': nameCast  })
                         .done(function() {
                             alert('Удаление прошло успешно!');
                             location.reload();

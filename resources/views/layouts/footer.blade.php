@@ -4,7 +4,7 @@
 <script>
     function soundWarning() {
         var audio = new Audio();
-        audio.src = 'http://binance-trade.local/beep-01a.mp3';
+        audio.src = 'http://localhost:8089/beep-01a.mp3';
         audio.autoplay = true;
         audio.loop = true;
     }

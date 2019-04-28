@@ -104,7 +104,7 @@
             {
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/start-monitoring-process?state=1&timer=30",
+                    url: "http://localhost:8089/api/start-monitoring-process?state=1&timer=30",
                     cache: false,
                     success: function(html){
                         location.reload();
@@ -128,7 +128,7 @@
                     $('.monitoring').addClass('btn-danger');
                     $.ajax({
                         type: "GET",
-                        url: "http://binance-trade.local/api/start-monitoring-process?state=1&timer=30",
+                        url: "http://localhost:8089/api/start-monitoring-process?state=1&timer=30",
                         cache: false,
                         success: function(html){
                             location.reload();
@@ -143,7 +143,7 @@
                     $('.monitoring').addClass('btn-success');
                     $.ajax({
                         type: "GET",
-                        url: "http://binance-trade.local/api/stop-monitoring-process",
+                        url: "http://localhost:8089/api/stop-monitoring-process",
                         cache: false,
                         success: function(html){
                             location.reload();

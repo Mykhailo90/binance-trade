@@ -144,7 +144,7 @@
         $("#listNameSave").click(function() {
             var name = $("#listNameValue").val();
             if (name.trim().length > 0){
-                $.post( "http://binance-trade.local/api/list-name-create", { 'name': name  })
+                $.post( "http://localhost:8089/api/list-name-create", { 'name': name  })
                     .done(function() {
                         alert('Список успешно создан!');
                         location.reload();
@@ -163,7 +163,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/add-all-currency?id=" + id,
+                    url: "http://localhost:8089/api/add-all-currency?id=" + id,
                     cache: false,
                     success: function(html){
                         location.reload();
@@ -205,10 +205,11 @@
                     return;
                 }
 
-                if (parseInt(listId)){
-                        $.post( "http://binance-trade.local/api/add-currency", { 'id': currencyId, 'min': currencyMin, 'max': currencyMax, 'listId': listId })
+                if (parseInt(listId) && parseInt(currencyId)){
+                        $.post( "http://localhost:8089/api/add-currency", { 'id': currencyId, 'min': currencyMin, 'max': currencyMax, 'listId': listId })
                             .done(function() {
                                 alert('Данные Добавлены!');
+                                location.reload();
                             });
                 }
                 else
@@ -223,7 +224,7 @@
 
                 if (min > 0 && max > 0)
                 {
-                    $.post( "http://binance-trade.local/api/update-settings", { 'id': id, 'min': min, 'max': max })
+                    $.post( "http://localhost:8089/api/update-settings", { 'id': id, 'min': min, 'max': max })
                         .done(function() {
                             alert('Данные обновлены!');
                         });
@@ -237,7 +238,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/delete-currency/"+elementId,
+                    url: "http://localhost:8089/api/delete-currency/"+elementId,
                     cache: false,
                     success: function(html){
 
@@ -258,7 +259,7 @@
                 $("#update-currency").prop('disabled',true);
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/update-currency",
+                    url: "http://localhost:8089/api/update-currency",
                     cache: false,
                     success: function(html){
                         location.reload();
@@ -273,7 +274,7 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "http://binance-trade.local/api/delete-monitoring-list?nameListId="+listNameId,
+                    url: "http://localhost:8089/api/delete-monitoring-list?nameListId="+listNameId,
                     cache: false,
                     success: function(html){
                         location.reload();

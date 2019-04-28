@@ -140,7 +140,7 @@
             });
 
             $(".settings-save").click(function () {
-                $.post( "http://binance-trade.local/api/add-global-settings", { 'checkCount': btnCount, 'checkSound': btnSound, 'min': minValue, 'max': maxValue })
+                $.post( "http://localhost:8089/api/add-global-settings", { 'checkCount': btnCount, 'checkSound': btnSound, 'min': minValue, 'max': maxValue })
                     .done(function() {
                         alert('Настройки успешно сохранены! Можете добавить валютные пары и запустить мониторинг!');
                     });

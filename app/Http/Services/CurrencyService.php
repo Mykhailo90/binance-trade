@@ -82,7 +82,6 @@ class CurrencyService
         $max = $request->get('max') ? $request->get('max') : $settingsService->getGlobalParams()->max_value;
         $listId = $request->get('listId');
 
-
         $res = CurrencyList::find($id);
 
         if ($res->status == 'TRADING')
@@ -99,7 +98,6 @@ class CurrencyService
             $currency->max_value = $max;
             $currency->save();
         }
-
     }
 
     public function addAllListToMonitoring(SettingsService $settingsService, $id)
